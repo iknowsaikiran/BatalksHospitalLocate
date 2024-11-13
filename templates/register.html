@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Hospital</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/css/multi-select-tag.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: rgb(124, 124, 220);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .hospital-registration {
+            max-width: 600px;
+            width: 100%;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hospital-registration:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .hospital-registration h4 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .hospital-registration label {
+            display: block;
+            margin: 10px 0 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .hospital-registration input,
+        .hospital-registration textarea {
+            width: 90%;
+            padding: 10px 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+            font-size: 16px;
+            color: #333;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hospital-registration input:focus,
+        .hospital-registration textarea:focus {
+            border-color: #795fff;
+            box-shadow: 0 0 8px rgba(121, 95, 255, 0.3);
+            outline: none;
+        }
+
+        .hospital-registration button {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 6px;
+            border: none;
+            background-color: #795fff;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .hospital-registration button:hover {
+            background-color: #684bd6;
+            transform: translateY(-2px);
+        }
+
+        .hospital-registration button:active {
+            background-color: #583bb5;
+            transform: translateY(0);
+        }
+
+
+
+        @media (max-width: 768px) {
+            .hospital-registration {
+                padding: 20px;
+            }
+        }
+
+
+
+        .dropdown-content label {
+            display: block;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+
+
+        #categoryInput {
+            width: 100%;
+            padding: 8px;
+        }
+
+        /* Styling to reduce size of the dropdown */
+        .multi-select-tag select {
+            padding: 5px;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        /* Style for the dropdown container */
+        .multi-select-tag-container {
+            position: relative;
+            width: 90%;
+            padding: 10px 10px;
+
+
+
+            background-color: #f9f9f9;
+        }
+
+        /* Add arrow to the dropdown */
+        .multi-select-tag-container::after {
+            content: '▼';
+            /* Unicode for the arrow */
+            font-size: 12px;
+            color: #333;
+            background-color: #fff;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        /* Style for selected items to be displayed inline */
+        .multi-select-tag-container .selected-items {
+            display: inline-block;
+            padding: 5px;
+            margin-right: 5px;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .multi-select-tag-container button {
+            background-color: #fff;
+
+
+        }
+
+        .multi-select-tag-container button:hover {
+            background-color: #fff;
+        }
+
+        /* Styling for the whole form */
+        .hospital-registration {
+            max-width: 600px;
+            width: 100%;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            position: relative;
+            max-width: 320px;
+            width: 100%;
+            margin-bottom: 5px;
+            background-color: #fff;
+        }
+
+        .select-btn {
+            display: flex;
+            height: 50px;
+            width: 165%;
+            align-items: center;
+            padding: 0 1rem;
+            justify-content: space-between;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .select-btn1 {
+            display: flex;
+            height: 50px;
+            width: 165%;
+            align-items: center;
+            padding: 0 1rem;
+            justify-content: space-between;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .select-btn .btn-text {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #333;
+        }
+
+        .select-btn1 .btn-text {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #333;
+        }
+
+        .select-btn .arrow-dwn {
+            display: flex;
+            height: 21px;
+            width: 21px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 14px;
+            background: #6e93f7;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s
+        }
+
+        .select-btn1 .arrow-dwn {
+            display: flex;
+            height: 21px;
+            width: 21px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 14px;
+            background: #6e93f7;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s
+        }
+
+        .select-btn.open .arrow-dwn {
+            transform: rotate(-180deg);
+        }
+
+        .select-btn1.open .arrow-dwn {
+            transform: rotate(-180deg);
+        }
+
+        .select-btn.open~.list-itmes {
+            display: block;
+        }
+
+        .select-btn1.open~.list-itmes {
+            display: block;
+        }
+
+        .list-itmes {
+            display: none;
+            position: absolute;
+            margin-top: 15px;
+            width: 165%;
+            border-radius: 8px;
+            max-height: 160px;
+            overflow-y: auto;
+            z-index: 10;
+            padding: 16px;
+            background-color: #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .list-itmes .item {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            height: 3rem;
+            cursor: pointer;
+            transition: 0.3s;
+            padding: 0px 15px;
+            border-radius: 8px;
+
+        }
+
+        .list-itmes .item1 {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            height: 3rem;
+            cursor: pointer;
+            transition: 0.3s;
+            padding: 0px 15px;
+            border-radius: 8px;
+
+        }
+
+        .list-itmes .item1:hover {
+            background-color: #e7edfe;
+        }
+
+        .list-itmes .item:hover {
+            background-color: #e7edfe;
+        }
+
+        .item .item-text {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #333;
+        }
+
+        .item1 .item-text {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #333;
+        }
+
+        .item .checkbox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 1rem;
+            width: 1rem;
+            color: #fff;
+            border-radius: 4px;
+            margin-right: 12px;
+            border: 1.5px solid #c0c0c0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .item1 .checkbox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 1rem;
+            width: 1rem;
+            color: #fff;
+            border-radius: 4px;
+            margin-right: 12px;
+            border: 1.5px solid #c0c0c0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .item1.checked .checkbox {
+            background-color: #4070f4;
+            border-color: #4070f4;
+        }
+
+        .item.checked .checkbox {
+            background-color: #4070f4;
+            border-color: #4070f4;
+        }
+
+        .checkbox .check-icon {
+            font-size: 1rem;
+            transform: scale(0);
+        }
+
+        .item1.checked .check-icon {
+            transform: scale(1);
+        }
+
+        .item.checked .check-icon {
+            transform: scale(1);
+        }
+
+        .home-button {
+            position: absolute;
+            top: 20px;
+            /* Adjust this value as needed */
+            right: 20px;
+            /* Adjust this value as needed */
+            padding: 10px 20px;
+            background-color: #fff;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 10;
+            /* Make sure it's above other content */
+        }
+
+        .home-button a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="home-button">
+        <a href="/">Home</a>
+    </button>
+    <div class="hospital-registration">
+        <h4>Register Your Hospital</h4>
+        <form id="hospitalRegistrationForm" action="/register" method="POST" enctype="multipart/form-data">
+            <label for="hospitalName">Hospital Name:</label>
+            <input type="text" id="hospitalName" name="hospitalName" placeholder="Hospital Name" required>
+        
+            <label for="status">Availability Status:</label>
+            <input type="text" id="status" name="status" placeholder="Available Now / Not Available" required>
+        
+            <label for="patientcount">Number of patients deals with:</label>
+            <input type="text" id="patientcount" name="patientcount" placeholder="e.g., 100 patients per day" required>
+        
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" placeholder="Brief description of the hospital" required></textarea>
+        
+            <label for="experience">Years of Experience:</label>
+            <input type="text" id="experience" name="experience" placeholder="Years of Experience" required>
+        
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" placeholder="Hospital Address" required>
+        
+            <label for="timings">Hospital Timings:</label>
+            <input type="text" id="timings" name="timings" placeholder="(10:00 AM to 6:00 PM OR 24 hrs)" required>
+        
+            <label for="price">OP Price:</label>
+            <input type="text" id="price" name="price" placeholder="OP Price (e.g., ₹1000)" required>
+        
+            <label for="opendays">Hospital Open Days:</label>
+            <input type="text" id="opendays" name="opendays" placeholder="Days available">
+        
+            <label for="category">Category:</label>
+            <div class="container">
+                <div class="select-btn">
+                    <span class="btn-text">Select Category</span>
+                    <span class="arrow-dwn">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </span>
+                </div>
+                <ul class="list-itmes">
+                    <li class="item">
+                        <span class="checkbox"><i class="fa-solid fa-check check-icon"></i></span>
+                        <span class="item-text" data-value="General Hospitals">General Hospitals</span>
+                    </li>
+                    <li class="item">
+                        <span class="checkbox"><i class="fa-solid fa-check check-icon"></i></span>
+                        <span class="item-text" data-value="Cardiology">Cardiology</span>
+                    </li>
+                    <!-- Add more categories here -->
+                </ul>
+            </div>
+            <!-- Hidden input to store selected categories as JSON -->
+            <input type="hidden" id="selectedCategoriesJson" name="selectedCategoriesJson">
+        
+            <label for="upload_hospital_image">Upload Hospital Image:</label>
+            <input type="file" name="upload_hospital_image" id="upload_hospital_image" accept="image/*" required><br>
+        
+            <button type="submit" class="btn btn-primary">Register Hospital</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/js/multi-select-tag.js"></script>
+
+   
+
+
+    <!-- <script>
+        // const selectBtn= document.querySelector(".select-btn");
+        //       items= document.querySelectorAll(".item");
+
+        // selectBtn.addEventListener("click", () => {
+        //     selectBtn.classList.toggle("open");
+        // });
+
+        // items.forEach(item => {
+        //         item.addEventListener("click", () => {
+        //             item.classList.toggle("checked");
+
+        //         let checked = document.querySelectorAll(".checked");
+        //             btnTxt = document.querySelector(".btn-text");
+
+        //         console.log(checked,btnTxt)
+
+        //         });
+        // })
+        /* Category script starts here*/
+        const selectBtn = document.querySelector(".select-btn");
+        const items = document.querySelectorAll(".item");
+        let selectedCategories = [];  // Array to store selected category values
+
+        selectBtn.addEventListener("click", () => {
+            selectBtn.classList.toggle("open");
+        });
+
+        items.forEach(item => {
+            item.addEventListener("click", () => {
+                item.classList.toggle("checked");
+
+                let checkedItems = document.querySelectorAll(".item.checked");  // Get all checked items
+                let btnTxt = document.querySelector(".btn-text");
+
+                selectedCategories = [];  // Reset array before updating
+                checkedItems.forEach(checkedItem => {
+                    let categoryId = checkedItem.querySelector(".item-text").id;  // Get the id of the checked item
+                    selectedCategories.push(categoryId);  // Add the id to the array
+                });
+
+                console.log("Selected Categories:", selectedCategories);  // Check in console
+
+                // Convert the selectedCategories array to a JSON string
+                const selectedCategoriesJson = JSON.stringify(selectedCategories);
+                console.log("Selected Categories as JSON:", selectedCategoriesJson);  // Log the JSON string
+
+                // Update the button text with selected categories if needed
+                // btnTxt.innerText = selectedCategories.length > 0 ? selectedCategories.join(", ") : "Select Category";
+            });
+        });
+        /* Category script ends here*/
+
+        /* Diseases script starts here*/
+        const selectBtn1 = document.querySelector(".select-btn1");
+        const items1 = document.querySelectorAll(".item1");
+        let selectedDiseases = [];  // Array to store selected category values
+
+        selectBtn1.addEventListener("click", () => {
+            selectBtn1.classList.toggle("open");
+        });
+
+        items1.forEach(item1 => {
+            item1.addEventListener("click", () => {
+                item1.classList.toggle("checked");
+
+                let checkedItems1 = document.querySelectorAll(".item1.checked");  // Get all checked items
+                let btnTxt1 = document.querySelector(".btn-text");
+
+                selectedDiseases = [];  // Reset array before updating
+                checkedItems1.forEach(checkedItem1 => {
+                    let diseaseId = checkedItem1.querySelector(".item-text").id;  // Get the id of the checked item
+                    selectedDiseases.push(diseaseId);  // Add the id to the array
+                });
+
+                console.log("Selected Diseases:", selectedDiseases);  // Check in console
+
+                // Convert the selectedCategories array to a JSON string
+                const selectedDiseasesJson = JSON.stringify(selectedDiseases);
+                console.log("Selected Diseases as JSON:", selectedDiseasesJson);  // Log the JSON string
+
+                // Update the button text with selected categories if needed
+                // btnTxt.innerText = selectedCategories.length > 0 ? selectedCategories.join(", ") : "Select Category";
+            });
+        });
+        /* Category script ends here*/
+
+    </script>
+
+
+ -->
+    <!-- <script>
+        // ----- CATEGORIES SCRIPT -----
+
+        // Hidden input for storing selected categories as JSON
+        let categoryInput = document.createElement('input');
+        categoryInput.type = 'hidden';
+        categoryInput.name = 'selectedCategoriesJson';
+        document.forms[0].appendChild(categoryInput);  // Assuming this is the first form on the page
+
+        // Selecting necessary DOM elements for categories
+        const selectBtn = document.querySelector(".select-btn");
+        const btnText = document.querySelector(".btn-text");  // The button text for categories
+        const items = document.querySelectorAll(".item");
+        let selectedCategories = [];  // Array to store selected category values
+
+        // Toggle dropdown on button click for categories
+        selectBtn.addEventListener("click", () => {
+            selectBtn.classList.toggle("open");
+        });
+
+        // Function to update the button text with selected categories
+        const updateButtonText = () => {
+            if (selectedCategories.length > 0) {
+                btnText.textContent = selectedCategories.join(", ");
+            } else {
+                btnText.textContent = "Select Category";  // Default text when no category is selected
+            }
+        };
+
+        // Adding click event to each category item
+        items.forEach(item => {
+            item.addEventListener("click", () => {
+                item.classList.toggle("checked");
+
+                // Get the id of the clicked item
+                const categoryId = item.querySelector(".item-text").id;
+
+                // Toggle selection of the category in the selectedCategories array
+                if (selectedCategories.includes(categoryId)) {
+                    selectedCategories = selectedCategories.filter(category => category !== categoryId);  // Remove if already selected
+                } else {
+                    selectedCategories.push(categoryId);  // Add if not selected
+                }
+
+                // Update the button text with the selected categories
+                updateButtonText();
+
+                // Update the hidden input with the selected categories as JSON
+                categoryInput.value = JSON.stringify(selectedCategories);
+
+                console.log("Selected Categories:", selectedCategories);  // For debugging
+            });
+        });
+
+        // Initial call to set button text (in case of pre-selected items)
+        updateButtonText();
+
+        // ----- DISEASES SCRIPT -----
+
+        // Hidden input for storing selected diseases as JSON
+        let diseaseInput = document.createElement('input');
+        diseaseInput.type = 'hidden';
+        diseaseInput.name = 'selectedDiseasesJson';
+        document.forms[0].appendChild(diseaseInput);  // Assuming this is the first form on the page
+
+        // Selecting necessary DOM elements for diseases
+        const selectBtn1 = document.querySelector(".select-btn1");
+        const btnText1 = document.querySelector(".select-btn1 .btn-text");  // The button text for diseases
+        const items1 = document.querySelectorAll(".item1");
+        let selectedDiseases = [];  // Array to store selected disease values
+
+        // Toggle dropdown on button click for diseases
+        selectBtn1.addEventListener("click", () => {
+            selectBtn1.classList.toggle("open");
+        });
+
+        // Function to update the button text with selected diseases
+        const updateButtonText1 = () => {
+            if (selectedDiseases.length > 0) {
+                btnText1.textContent = selectedDiseases.join(", ");
+            } else {
+                btnText1.textContent = "Select Diseases";  // Default text when no disease is selected
+            }
+        };
+
+        // Adding click event to each disease item
+        items1.forEach(item1 => {
+            item1.addEventListener("click", () => {
+                item1.classList.toggle("checked");
+
+                // Get the id of the clicked item
+                const diseaseId = item1.querySelector(".item-text").id;
+
+                // Toggle selection of the disease in the selectedDiseases array
+                if (selectedDiseases.includes(diseaseId)) {
+                    selectedDiseases = selectedDiseases.filter(disease => disease !== diseaseId);  // Remove if already selected
+                } else {
+                    selectedDiseases.push(diseaseId);  // Add if not selected
+                }
+
+                // Update the button text with the selected diseases
+                updateButtonText1();
+
+                // Update the hidden input with the selected diseases as JSON
+                diseaseInput.value = JSON.stringify(selectedDiseases);
+
+                console.log("Selected Diseases:", selectedDiseases);  // For debugging
+            });
+        });
+
+        // Initial call to set button text (in case of pre-selected items)
+        updateButtonText1();
+    </script> -->
+    <script>
+        // ----- CATEGORIES SCRIPT -----
+    
+        // Selecting DOM elements for categories
+        const selectBtn = document.querySelector(".select-btn");  // Category dropdown button
+        const btnText = document.querySelector(".btn-text");  // Button text for categories
+        const items = document.querySelectorAll(".item");  // List of category items
+        let selectedCategories = [];  // Array to store selected categories
+        const categoryInput = document.querySelector("#selectedCategoriesJson");  // Hidden input for selected categories
+    
+        // Toggle dropdown on button click for categories
+        selectBtn.addEventListener("click", () => {
+            selectBtn.classList.toggle("open");
+        });
+    
+        // Handle category item selection
+        items.forEach(item => {
+            item.addEventListener("click", () => {
+                const categoryValue = item.querySelector(".item-text").dataset.value;  // Get the category value from the data attribute
+                item.classList.toggle("checked");
+    
+                // Add or remove the selected category
+                if (selectedCategories.includes(categoryValue)) {
+                    selectedCategories = selectedCategories.filter(cat => cat !== categoryValue);
+                } else {
+                    selectedCategories.push(categoryValue);
+                }
+    
+                // Update the button text and hidden input value with selected categories
+                btnText.textContent = selectedCategories.length > 0 ? selectedCategories.join(", ") : "Select Category";
+                categoryInput.value = JSON.stringify(selectedCategories);  // Store selected categories as JSON
+            });
+        });
+    
+    
+        // ----- DISEASES SCRIPT -----
+    
+        // Selecting DOM elements for diseases
+        const selectBtn1 = document.querySelector(".select-btn1");  // Disease dropdown button
+        const btnText1 = document.querySelector(".select-btn1 .btn-text");  // Button text for diseases
+        const items1 = document.querySelectorAll(".item1");  // List of disease items
+        let selectedDiseases = [];  // Array to store selected diseases
+        const diseaseInput = document.querySelector("#selectedDiseasesJson");  // Hidden input for selected diseases
+    
+        // Toggle dropdown on button click for diseases
+        selectBtn1.addEventListener("click", () => {
+            selectBtn1.classList.toggle("open");
+        });
+    
+        // Handle disease item selection
+        items1.forEach(item1 => {
+            item1.addEventListener("click", () => {
+                const diseaseValue = item1.querySelector(".item-text").dataset.value;  // Get the disease value from the data attribute
+                item1.classList.toggle("checked");
+    
+                // Add or remove the selected disease
+                if (selectedDiseases.includes(diseaseValue)) {
+                    selectedDiseases = selectedDiseases.filter(disease => disease !== diseaseValue);
+                } else {
+                    selectedDiseases.push(diseaseValue);
+                }
+    
+                // Update the button text and hidden input value with selected diseases
+                btnText1.textContent = selectedDiseases.length > 0 ? selectedDiseases.join(", ") : "Select Diseases";
+                diseaseInput.value = JSON.stringify(selectedDiseases);  // Store selected diseases as JSON
+            });
+        });
+    </script>
+    
+
+
+</body>
+
+</html>

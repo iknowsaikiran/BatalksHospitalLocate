@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/static/img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="codepixer">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Hospital Listing</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+   
+    <!--
+		CSS
+		============================================= -->
+    <link rel="stylesheet" href="/static/css/linearicons.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/magnific-popup.css">
+    <link rel="stylesheet" href="/static/css/nice-select.css">
+    <link rel="stylesheet" href="/static/css/animate.min.css">
+    <link rel="stylesheet" href="/static/css/owl.carousel.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+	<link rel="stylesheet" href="/static/assets/card.css">
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        .single-feature {
+            position: relative;
+        }
+
+        #prem {
+            position: absolute;
+            bottom: 60px;
+            left: 180px;
+        }
+
+        .badge-icon {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+
+            border-radius: 50%;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .single-feature {
+            position: relative;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+
+        .nav-menu a {
+            padding: 6px 10px;
+            text-decoration: none;
+            display: inline-block;
+            color: #fff;
+            font-weight: 400;
+            font-size: 16px;
+            text-transform: uppercase;
+            outline: none;
+        }
+
+        .sticky {
+
+            position: sticky;
+
+            bottom: 0;
+            padding: 5px;
+            margin: 10px;
+            width: 300px;
+            float: right;
+        }
+
+        .sticky h1 {
+            color: orangered;
+        }
+
+        .section-gap {
+            padding: 50px 0;
+        }
+
+        .single-popular-post {
+            background-color: lavender;
+            padding: 50px;
+            color: #000;
+        }
+
+        .single-popular-post h1 {
+            color: #000;
+        }
+
+        .get-app {
+            margin-left: 10px;
+        }
+
+        /* Styling for the Get App now button */
+        .get-app-btn {
+            display: inline-block;
+            padding: 10px 10px;
+            background-color: #ff5722;
+            /* Change to your preferred color */
+            color: #fff;
+            border-radius: 50px;
+            /* Rounded appearance */
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            margin-left: 15px;
+            text-transform: lowercase;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover effect */
+        .get-app-btn:hover {
+            background-color: #e64a19;
+            /* Slightly darker color for hover state */
+        }
+
+        /* Additional adjustments for Get App now button */
+        .get-app {
+            margin-left: auto;
+            /* Pushes the Get App button to the far right */
+        }
+
+        .get-app-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.5);
+            /* Optional focus state styling */
+        }
+
+        /* Footer Base Styling */
+        /* Base Styling for Footer */
+        /* Base Styling for Footer */
+        /* Base Styling for Footer */
+        /* Base Styling for Footer */
+z
+        /* Responsive Styling */
+        
+
+
+        .single-post {
+            margin-top: 20px;
+            /* Add additional styles as needed */
+        }
+
+        /* BOOK APPOINTEMENT */
+        .single-slidebar {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .single-slidebar h4 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .single-slidebar .btn {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            background: rgb(130, 130, 232);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .single-slidebar .btn:hover {
+            background: #0056b3;
+        }
+
+        .single-slidebar label {
+            display: block;
+            margin: 5px 0 5px;
+            font-weight: bold;
+        }
+
+        .single-slidebar input {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .single-slidebar button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background: rgb(92, 92, 222);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .single-slidebar button[type="button"] {
+            width: 100%;
+            padding: 10px;
+            background: rgb(92, 92, 222);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .single-slidebar button[type="submit"]:hover {
+            background: rgb(69, 69, 223);
+        }
+
+        /* Media query for smaller screens */
+        @media screen and (max-width: 768px) {
+            .single-slidebar {
+                padding: 10px;
+            }
+
+            .single-slidebar h4 {
+                font-size: 18px;
+            }
+
+            .single-slidebar button {
+                font-size: 16px;
+            }
+        }
+
+        /* Media query for extra small screens */
+        @media screen and (max-width: 480px) {
+
+            .single-slidebar input[type="text"],
+            .single-slidebar input[type="date"],
+            .single-slidebar button {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .single-slidebar h4 {
+                font-size: 16px;
+            }
+        }
+
+        #header .nav-menu {
+            gap: 15px;
+            /* Adds spacing between links */
+        }
+
+        #header .get-app-btn {
+            background-color: #ff9800;
+            /* Customize Get App button */
+            border-radius: 20px;
+        }
+
+        @media (max-width: 992px) {
+            #nav-menu-container {
+                flex-grow: 1;
+                justify-content: flex-end;
+            }
+        }
+
+        /* Overwrite the default color for the heart within .btns */
+        .btns .toggle-favourite .fas.fa-heart {
+            color: gray !important; /* Default color */
+            font-weight: 1000;
+        }
+
+        /* Overwrite the active color for the filled heart within .btns */
+        .btns .toggle-favourite .fas.fa-heart.active {
+            color: red !important; /* Active color */
+            font-weight: 1000;
+        }
+
+        /* Optional: Ensuring the button also gets a style (if needed) */
+        .btns .add-favourite {
+            background: none; /* Remove button background */
+            border: none; /* Remove button border */
+            padding: 0; /* Remove padding */
+            cursor: pointer; /* Change cursor to pointer */
+            font-weight: 1000;
+        }
+        .active {
+			text-decoration: underline;
+		}
+
+		/*active class*/
+		.nav-menu li a {
+			text-decoration: none;
+			color: white;
+			/* Default color */
+			padding: 10px;
+		}
+
+		.nav-menu li.active a {
+			color: whitesmoke;
+			/* Highlight color for active link */
+			text-decoration: white underline;
+			font-weight: bold;
+
+		}
+        .get-app {
+			margin-left: 10px;
+		}
+
+		/* Styling for the Get App now button */
+		.get-app-btn {
+			display: inline-block;
+			padding: 10px 10px;
+			background-color: #ff5722;
+			/* Change to your preferred color */
+			color: #fff;
+			border-radius: 50px;
+			/* Rounded appearance */
+			font-weight: bold;
+			text-align: center;
+			text-decoration: none;
+			margin-left: 15px;
+			text-transform: lowercase;
+			transition: background-color 0.3s ease;
+		}
+
+		/* Hover effect */
+		.get-app-btn:hover {
+			background-color: #e64a19;
+			/* Slightly darker color for hover state */
+		}
+
+		/* Additional adjustments for Get App now button */
+		.get-app {
+			margin-left: auto;
+			/* Pushes the Get App button to the far right */
+		}
+
+		.get-app-btn:focus {
+			outline: none;
+			box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.5);
+			/* Optional focus state styling */
+		}
+
+		.register-btn {
+			display: inline-block;
+			padding: 10px 20px;
+			width: 400px;
+			background: orangered;
+			/* Gradient background */
+			color: #fff;
+			border: none;
+			border-radius: 25px;
+			/* Rounded corners */
+			font-size: 16px;
+			text-align: center;
+			text-decoration: none;
+			transition: background 0.3s ease, transform 0.3s ease;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+			/* Subtle shadow */
+		}
+
+		.register-btn:hover {
+			background: orangered;
+			/* Reverse gradient on hover */
+			transform: translateY(-2px);
+			/* Lift effect on hover */
+			box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+			/* Enhance shadow on hover */
+		}
+
+		.get-app-btn:hover {
+			background: orangered;
+			/* Reverse gradient on hover */
+			transform: translateY(-2px);
+			/* Lift effect on hover */
+			box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+			/* Enhance shadow on hover */
+		}
+
+		.register-btn:active {
+			transform: translateY(0);
+			/* Remove lift effect when clicking */
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+			/* Restore original shadow */
+		}
+
+		.get-app-btn,
+		.register-btn {
+			display: inline-block;
+			background-color: #ff9800;
+			/* Original background color */
+			color: white;
+			border-radius: 20px;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			transition: all 0.3s ease;
+			font-size: 16px;
+		}
+        #opcount{
+			color: #e64a19;
+		}
+
+		/* Responsive adjustments */
+		@media (max-width: 768px) {
+
+			.get-app-btn,
+			.register-btn {
+				background-color: transparent;
+				color: #333;
+				/* Use a standard text color */
+				border: none;
+				/* Remove border */
+				padding: 0;
+				/* Remove padding */
+				margin-left: 0;
+				text-align: left;
+				font-size: 14px;
+				/* Slightly smaller font */
+			}
+
+			.get-app-btn:hover,
+			.register-btn:hover {
+				text-decoration: underline;
+				/* Add underline on hover for better interaction feedback */
+			}
+
+			.get-app,
+			.register {
+				margin: 10px 0;
+				width: 0;
+
+			}
+
+			.nav-menu li {
+				margin: 5px 0;
+				display: block;
+				text-align: center;
+			}
+		}
+                    .custom-footer {
+                background-color: #343a40; /* Set background to black */
+                height: 48px;            /* Set height to 60px */
+                display: flex;           /* Use flexbox for layout */
+                justify-content: space-between; /* Space out the content */
+                align-items: center;     /* Center items vertically */
+                padding: 0 0px;         /* Add horizontal padding */
+            }
+
+            .footer-text {
+                color: white;            /* Set copyright text color to white */
+                text-align: left;        /* Align text to the left */
+            }
+
+            .footer-icons {
+                display: flex;           /* Use flexbox for icon layout */
+                align-items: center;     /* Center icons vertically */
+            }
+
+            .footer-icons a {
+                color: white;            /* Set icon color to white */
+                margin-left: 10px;       /* Add margin between icons */
+                margin-right: 10px;      /* Add margin between icons */
+            }
+
+            .footer-icons i {
+                font-size: 24px;         /* Icon size */
+            }
+
+                    
+
+
+    </style>
+</head>
+
+<body>
+    <!-- start banner Area -->
+    <section class="banner-area relative" id="home">
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="about-content col-lg-12">
+                    <h1 class="text-white">
+                        Hospitals in {{ category|capitalize }}
+                    </h1>
+                    <p class="text-white link-nav"><a href="/">Home </a> <span class="lnr lnr-arrow-right"></span> <a
+                            href="/bookapppointments"> {{ category|capitalize }} category</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End banner Area -->
+     
+    <section class="post-area section-gap">
+        <div class="">
+            <div class="header-container">
+                <h2>Hospitals</h2>
+                <li><a class="ticker-btn" href="/favourite">Favourite Hospitals</a></li>
+            </div>
+            <div class="row justify-content-center d-flex">
+                <div class="col-lg-8 post-list">
+                    {% if hospitals %}
+                    <ul>
+                        {% for hospital in hospitals %}
+                        <div class="single-post blog-slider__item swiper-slide d-flex">
+                            <div class="blog-slider__img col-4">
+                                <img src="{{ url_for('static', filename='img/apollo.jfif') }}" alt="Hospital Image">
+                            </div>
+                            <div class="blog-slider__content col-5">
+                                <h3 class="blog-slider__title">
+                                    {{ hospital[1] }}
+                                    <!-- <i class="fa fa-heart favorite-icon" onclick="toggleFavorite(this)"></i> -->
+                                </h3>
+                                <p class="availability-status" style="color: green;">Available Now</p>
+                                <p class="timings">Timings: {{ hospital[2] }}</p>
+                                <p>{{ hospital[3] }} years in health care</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Address here</p>
+                                <p>Op price: <i class="fa-solid fa-indian-rupee-sign"></i> {{ hospital[4] }}</p>
+                                <p><strong>Current OP count:</strong> 
+                                    {% if 'username' in session %}
+                                        128
+                                    {% else %}
+                                        <span class="op-count" onclick="showLoginAlert()">****</span>  
+                                        <p id="opcount">Login to see the current op count</p>
+                                    {% endif %}
+                                </p>
+                            </div>
+                            <div class="button-group col-3 btnt">
+                                <ul class="btns ">
+                                    <li>
+                                        <form action="/toggle_favourite" method="POST" style="display:inline;">
+                                            <input type="hidden" name="hospital_id" value="{{ hospital[0] }}">
+                                            <button type="button" class="toggle-favourite" aria-label="{{ 'Remove from favorites' if hospital[5] else 'Add to favorites' }}">
+                                                <i class="fas fa-heart {{ 'active' if hospital[5] else '' }}"></i>
+                                            </button>
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="view-card">View</a>
+                                    </li>
+                                </ul>
+                                <button class="btn p-2" data-bs-toggle="modal" data-bs-target="#callModal{{ hospital[0] }}">Call</button>
+                                <button class="btn p-2" data-bs-toggle="modal" data-bs-target="#chatModal{{ hospital[0] }}">Chat</button>
+                                <button class="btn p-2 mt-10" data-bs-toggle="modal" data-bs-target="#appointmentModal{{ hospital[0] }}">Book Appointment</button>
+                            </div>
+                        </div>
+    
+                        <!-- Call Modal -->
+                        <div class="modal fade" id="callModal{{ hospital[0] }}" tabindex="-1" aria-labelledby="callModalLabel{{ hospital[0] }}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="callModalLabel{{ hospital[0] }}">Call {{ hospital[1] }}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Call feature is coming soon.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Chat Modal -->
+                        <div class="modal fade" id="chatModal{{ hospital[0] }}" tabindex="-1" aria-labelledby="chatModalLabel{{ hospital[0] }}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="chatModalLabel{{ hospital[0] }}">Chat with {{ hospital[1] }}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Chat support is coming soon.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Appointment Modal -->
+                        <div class="modal fade" id="appointmentModal{{ hospital[0] }}" tabindex="-1" aria-labelledby="appointmentModalLabel{{ hospital[0] }}" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="appointmentModalLabel{{ hospital[0] }}">Book Appointment - {{ hospital[1] }}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="text-center">
+                                            <button class="btn btn-primary m-2 new-patient-btn" data-hospital-id="{{ hospital[0] }}">New Patient</button>
+                                            <button class="btn btn-primary m-2 existing-patient-btn" data-hospital-id="{{ hospital[0] }}">Already a Patient</button>
+                                        </div>
+    
+                                        <!-- New Patient Form -->
+                                        <form id="newPatientForm{{ hospital[0] }}" class="new-patient-form" style="display: none;" method="POST" action="/bookappointment">
+                                            <input type="hidden" name="appointmentDate" value="" id="appointmentDateHidden{{ hospital[0] }}">
+                                            <label for="firstName">First Name:</label>
+                                            <input type="text" name="firstName" placeholder="First name" class="form-control" required>
+    
+                                            <label for="lastName">Last Name:</label>
+                                            <input type="text" name="lastName" placeholder="Last name" class="form-control" required>
+    
+                                            <label for="number">Phone Number:</label>
+                                            <input type="text" name="number" placeholder="Phone number" class="form-control" required>
+    
+                                            <label for="address">Address:</label>
+                                            <input type="text" name="address" placeholder="Your address" class="form-control" required>
+    
+                                            <label for="reason">Reason for your Appointment:</label>
+                                            <input type="text" name="reason" placeholder="Reason for appointment" class="form-control" required>
+    
+                                            <label for="appointmentDate">Select Date:</label>
+                                            <input type="date" name="appointmentDate" class="form-control" required>
+    
+                                            <button type="submit" class="btn btn-success mt-3">Book Appointment</button>
+                                        </form>
+    
+                                        <!-- Existing Patient Form -->
+                                        <form id="existingPatientForm{{ hospital[0] }}" class="existing-patient-form" style="display: none;" method="POST" action="/bookappointment">
+                                            <input type="hidden" name="appointmentDate" value="" id="appointmentDateHidden{{ hospital[0] }}">
+                                            <label for="opName">Name on OP Card:</label>
+                                            <input type="text" name="opName" placeholder="Name on OP card" class="form-control" required>
+    
+                                            <label for="opPhone">Phone Number on OP Card:</label>
+                                            <input type="text" name="opPhone" placeholder="Phone number on OP card" class="form-control" required>
+    
+                                            <label for="opNumber">OP Number:</label>
+                                            <input type="text" name="opNumber" placeholder="OP number" class="form-control" required>
+    
+                                            <button type="submit" class="btn btn-success mt-3">Book Appointment</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>No hospitals near you.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!--end post area  -->
+
+    <!-- start of footer area -->
+<footer style="padding: 20px 0px;">
+    <div class="custom-footer">
+        <!-- Left-aligned Copyright -->
+        <div class="footer-text">
+            Copyright &copy;
+            <script>document.write(new Date().getFullYear());</script> All rights reserved by BAtalks
+        </div>
+
+        <!-- Right-aligned Contact and Social Media Icons -->
+        <div class="footer-icons">
+            <!-- Contact Info -->
+            <a href="mailto:contact@batalks.com">
+                <i class="fa fa-envelope-square"></i>
+                <span>contact@batalks.com</span>
+            </a>
+            <a href="tel:+918341322771">
+                <i class="fa fa-phone"></i>
+                <span>+918341322771</span>
+            </a>
+
+            <!-- Social Media Icons -->
+            <a href="https://www.facebook.com/people/BA-Talks/61561068777682/" target="_blank">
+                <i class="fa fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/batalkspvtltd/" target="_blank">
+                <i class="fa fa-instagram"></i>
+            </a>
+            <a href="https://api.whatsapp.com/send/?phone=%2B918341322771&text&type=phone_number&app_absent=0" target="_blank">
+                <i class="fa fa-whatsapp"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/ba-talks-pvt-ltd/" target="_blank">
+                <i class="fa fa-linkedin"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<!-- end of footer area -->
+
+    <script>
+        document.querySelectorAll('.new-patient-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const modalBody = this.closest('.modal-body');
+                modalBody.querySelector('.new-patient-form').style.display = 'block';
+                modalBody.querySelector('.existing-patient-form').style.display = 'none';
+            });
+        });
+
+        document.querySelectorAll('.existing-patient-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const modalBody = this.closest('.modal-body');
+                modalBody.querySelector('.new-patient-form').style.display = 'none';
+                modalBody.querySelector('.existing-patient-form').style.display = 'block';
+            });
+        });
+
+    </script>
+    <script>
+        function showLoginAlert() {
+            alert("Please log in to view the OP count.");
+        }
+    </script>
+
+
+
+
+
+
+    <!-- End footer Area -->
+
+    <script src="/static/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="/static/js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+    <script src="/static/js/easing.min.js"></script>
+    <script src="/static/js/hoverIntent.js"></script>
+    <script src="/static/js/superfish.min.js"></script>
+    <script src="/static/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/static/js/jquery.magnific-popup.min.js"></script>
+    <script src="/static/js/owl.carousel.min.js"></script>
+    <script src="/static/js/jquery.sticky.js"></script>
+    <script src="/static/js/jquery.nice-select.min.js"></script>
+    <script src="/static/js/parallax.min.js"></script>
+    <script src="/static/js/mail-script.js"></script>
+    <script src="/static/js/main.js"></script>
+    <!-- fav -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const newPatientBtn = document.getElementById('newPatientBtn');
+            const existingPatientBtn = document.getElementById('existingPatientBtn');
+            const newPatientForm = document.getElementById('newPatientForm');
+            const existingPatientForm = document.getElementById('existingPatientForm');
+
+            newPatientBtn.addEventListener('click', function () {
+                newPatientForm.style.display = 'block';
+                existingPatientForm.style.display = 'none';
+            });
+
+            existingPatientBtn.addEventListener('click', function () {
+                newPatientForm.style.display = 'none';
+                existingPatientForm.style.display = 'block';
+            });
+        });
+    </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const favoriteButtons = document.querySelectorAll('.toggle-favourite');
+    
+        favoriteButtons.forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent default form submission
+    
+                const form = this.closest('form'); // Get the form element
+                const hospitalId = form.querySelector('input[name="hospital_id"]').value; // Get hospital_id
+                const heartIcon = this.querySelector('.fas.fa-heart'); // Get the heart icon
+                const isActive = heartIcon.classList.contains('active'); // Check if the heart is active
+                const action = isActive ? 'remove' : 'add'; // Determine action
+    
+                const endpoint = action === 'add' ? '/add_favourite' : '/remove_favourite';
+    
+                fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams({
+                        'hospital_id': hospitalId
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        heartIcon.classList.toggle('active'); // Toggle the heart icon state
+
+                        // Change the color of the heart icon based on active state
+                        if (heartIcon.classList.contains('active')) {
+                            heartIcon.style.color = 'orange'; // Change to orange
+                            this.setAttribute('aria-label', 'Remove from favorites'); 
+                        } else {
+                            heartIcon.style.color = 'gray'; // Change to gray
+                            this.setAttribute('aria-label', 'Add to favorites'); 
+                        }
+                    } else {
+                        console.error('Error toggling favorite:', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+            });
+        });
+    });
+</script>
+    <script>
+
+        // JavaScript for handling the modal and hidden appointment date field
+        document.querySelectorAll('.new-patient-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const modalBody = this.closest('.modal-body');
+                modalBody.querySelector('.new-patient-form').style.display = 'block';
+                modalBody.querySelector('.existing-patient-form').style.display = 'none';
+
+                // Update hidden field with selected appointment date
+                const appointmentDate = document.querySelector('#appointmentDate').value;
+                modalBody.querySelector('#appointmentDateHidden').value = appointmentDate;
+            });
+        });
+
+        document.querySelectorAll('.existing-patient-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const modalBody = this.closest('.modal-body');
+                modalBody.querySelector('.new-patient-form').style.display = 'none';
+                modalBody.querySelector('.existing-patient-form').style.display = 'block';
+
+                // Update hidden field with selected appointment date
+                const appointmentDate = document.querySelector('#appointmentDate').value;
+                modalBody.querySelector('#appointmentDateHidden').value = appointmentDate;
+            });
+        });
+
+        document.querySelectorAll('#appointmentDate').forEach(dateInput => {
+            dateInput.addEventListener('change', function () {
+                // Update hidden field whenever the date is changed
+                const appointmentDate = this.value;
+                document.querySelectorAll('#appointmentDateHidden').forEach(hiddenField => {
+                    hiddenField.value = appointmentDate;
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

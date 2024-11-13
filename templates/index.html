@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="img/fav.png">
+	<!-- Meta Information -->
+	<meta name="author" content="codepixer">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>Hospital Listing</title>
+
+	{% include 'header.html' %}
+
+	<!-- Font Awesome (Ensure only one link) -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+
+	<!-- CSS Stylesheets -->
+	<link rel="stylesheet" href="/static/css/linearicons.css">
+	<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/static/css/bootstrap.css">
+	<link rel="stylesheet" href="/static/css/magnific-popup.css">
+	<link rel="stylesheet" href="/static/css/nice-select.css">
+	<link rel="stylesheet" href="/static/css/animate.min.css">
+	<link rel="stylesheet" href="/static/css/owl.carousel.css">
+	<link rel="stylesheet" href="/static/css/main.css">
+	<link rel="stylesheet" href="/static/assets/card.css">
+
+	<style>
+		body {
+			overflow-x: hidden;
+
+		}
+
+		.single-feature {
+			position: relative;
+		}
+
+		#prem {
+			position: absolute;
+			bottom: 60px;
+			left: 180px;
+		}
+
+		.badge-icon {
+			position: absolute;
+			top: -10px;
+			right: -10px;
+
+			border-radius: 50%;
+			padding: 5px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.single-feature {
+			position: relative;
+			padding: 20px;
+			border: 1px solid #ddd;
+			border-radius: 8px;
+			background-color: #fff;
+		}
+
+		.nav-menu a {
+			padding: 6px 10px;
+			text-decoration: none;
+			display: inline-block;
+			color: #fff;
+			font-weight: 400;
+			font-size: 16px;
+			text-transform: uppercase;
+			outline: none;
+		}
+
+		.sticky {
+
+			position: sticky;
+
+			bottom: 0;
+			padding: 5px;
+			margin: 10px;
+			width: 300px;
+			float: right;
+		}
+
+		.sticky h1 {
+			color: orangered;
+		}
+
+		.section-gap {
+			padding: 50px 0;
+		}
+
+		.single-popular-post {
+			background-color: lavender;
+			padding: 50px;
+			color: #000;
+		}
+
+		.single-popular-post h1 {
+			color: #000;
+		}
+
+		.get-app {
+			margin-left: 10px;
+		}
+
+		/* Styling for the Get App now button */
+		.get-app-btn {
+			display: inline-block;
+			padding: 10px 10px;
+			background-color: #ff5722;
+			/* Change to your preferred color */
+			color: #fff;
+			border-radius: 50px;
+			/* Rounded appearance */
+			font-weight: bold;
+			text-align: center;
+			text-decoration: none;
+			margin-left: 15px;
+			text-transform: lowercase;
+			transition: background-color 0.3s ease;
+		}
+
+		/* Hover effect */
+		.get-app-btn:hover {
+			background-color: #e64a19;
+			/* Slightly darker color for hover state */
+		}
+
+		/* Additional adjustments for Get App now button */
+		.get-app {
+			margin-left: auto;
+			/* Pushes the Get App button to the far right */
+		}
+
+		.get-app-btn:focus {
+			outline: none;
+			box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.5);
+			/* Optional focus state styling */
+		}
+
+		.register-btn {
+			display: inline-block;
+			padding: 10px 20px;
+			width: 400px;
+			background: orangered;
+			/* Gradient background */
+			color: #fff;
+			border: none;
+			border-radius: 25px;
+			/* Rounded corners */
+			font-size: 16px;
+			text-align: center;
+			text-decoration: none;
+			transition: background 0.3s ease, transform 0.3s ease;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+			/* Subtle shadow */
+		}
+
+		.register-btn:hover {
+			background: orangered;
+			/* Reverse gradient on hover */
+			transform: translateY(-2px);
+			/* Lift effect on hover */
+			box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+			/* Enhance shadow on hover */
+		}
+
+		.get-app-btn:hover {
+			background: orangered;
+			/* Reverse gradient on hover */
+			transform: translateY(-2px);
+			/* Lift effect on hover */
+			box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+			/* Enhance shadow on hover */
+		}
+
+		.register-btn:active {
+			transform: translateY(0);
+			/* Remove lift effect when clicking */
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+			/* Restore original shadow */
+		}
+
+		.get-app-btn,
+		.register-btn {
+			display: inline-block;
+			background-color: #ff9800;
+			/* Original background color */
+			color: white;
+			border-radius: 20px;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			transition: all 0.3s ease;
+			font-size: 16px;
+		}
+
+		/* Responsive adjustments */
+		@media (max-width: 768px) {
+
+			.get-app-btn,
+			.register-btn {
+				background-color: transparent;
+				color: #333;
+				/* Use a standard text color */
+				border: none;
+				/* Remove border */
+				padding: 0;
+				/* Remove padding */
+				margin-left: 0;
+				text-align: left;
+				font-size: 14px;
+				/* Slightly smaller font */
+			}
+
+			.get-app-btn:hover,
+			.register-btn:hover {
+				text-decoration: underline;
+				/* Add underline on hover for better interaction feedback */
+			}
+
+			.get-app,
+			.register {
+				margin: 10px 0;
+				width: 0;
+
+			}
+
+			.nav-menu li {
+				margin: 5px 0;
+				display: block;
+				text-align: center;
+			}
+		}
+
+
+
+
+		@media (min-width: 768px) {
+			.single-popular-post {
+				flex-direction: row;
+				/* Side-by-side on larger screens */
+				align-items: center;
+			}
+
+			.details h3 {
+				font-size: 20px;
+			}
+
+			.details h5 {
+				font-size: 18px;
+			}
+		}
+
+		@media (max-width: 767px) {
+			.single-popular-post {
+				width: 100%;
+				/* Ensure it takes up full width on small screens */
+			}
+
+			.details h3 {
+				font-size: 20px;
+			}
+
+			.details h5 {
+				font-size: 14px;
+			}
+		}
+
+		/* Keyframes for fadeInUp animation */
+		@-webkit-keyframes fadeInUp {
+			from {
+				opacity: 0;
+				-webkit-transform: translate3d(0, 100%, 0);
+				transform: translate3d(0, 100%, 0);
+			}
+
+			to {
+				opacity: 1;
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+		}
+
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				-webkit-transform: translate3d(0, 100%, 0);
+				transform: translate3d(0, 100%, 0);
+			}
+
+			to {
+				opacity: 1;
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+		}
+
+		/* Animation class */
+		.fadeInUp {
+			-webkit-animation-name: fadeInUp;
+			animation-name: fadeInUp;
+			-webkit-animation-duration: 1s;
+			animation-duration: 1s;
+			-webkit-animation-timing-function: ease-in-out;
+			animation-timing-function: ease-in-out;
+			/* animation-delay: 12s; */
+			/* animation-iteration-count: infinite; */
+		}
+
+		.fadeInLeft {
+			-webkit-animation-name: fadeInLeft;
+			animation-name: fadeInLeft;
+			-webkit-animation-duration: 1s;
+			animation-duration: 1s;
+			-webkit-animation-timing-function: ease-in-out;
+			animation-timing-function: ease-in-out;
+			/* animation-delay: 12s; */
+			/* animation-iteration-count: infinite; */
+		}
+
+		.fadeInLeft.show {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+		}
+
+		.fadeInUp {
+			-webkit-animation-name: fadeInUp;
+			animation-name: fadeInUp;
+			-webkit-animation-duration: 1s;
+			animation-duration: 1s;
+			-webkit-animation-timing-function: ease-in-out;
+			animation-timing-function: ease-in-out;
+		}
+
+		@-webkit-keyframes fadeInLeft {
+			from {
+				opacity: 0;
+				-webkit-transform: translate3d(-100%, 0, 0);
+				transform: translate3d(-100%, 0, 0);
+			}
+
+			to {
+				opacity: 1;
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+		}
+
+		@keyframes fadeInLeft {
+			from {
+				opacity: 0;
+				-webkit-transform: translate3d(-100%, 0, 0);
+				transform: translate3d(-100%, 0, 0);
+			}
+
+			to {
+				opacity: 1;
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+		}
+
+		.fadeInLeft {
+			-webkit-animation-name: fadeInLeft;
+			animation-name: fadeInLeft;
+		}
+
+		.language-switcher-card {
+			border: 1px solid #ccc;
+			border-radius: 8px;
+			padding: 10px;
+			background-color: #f9f9f9;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+			text-align: center;
+			max-width: 300px;
+			margin: 0 auto;
+			position: absolute;
+			top: 10px;
+			right: 3px;
+		}
+
+		.language-switcher-card h3 {
+			margin-bottom: 10px;
+		}
+
+		.language-switcher-card button {
+			background-color: rgb(119, 119, 227);
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+			padding: 6px 12px;
+			margin: 2px;
+			cursor: pointer;
+			font-size: 12px;
+		}
+
+		.language-switcher-card button:hover {
+			background-color: rgb(102, 102, 221);
+		}
+
+		/* get app button */
+		#getapp {
+			width: 100px;
+			background-color: #ff6600;
+			/* Customize this */
+			color: white;
+			text-transform: capitalize;
+			padding: 12px 12px;
+			text-align: center;
+			text-decoration: none;
+			border: 5px solid white;
+
+			font-weight: 300;
+			position: fixed;
+			/* Make it fixed */
+			/*  top: 500px; Distance from the top */
+			bottom: 60px;
+			/* Distance from the bottom */
+			right: 10px;
+			z-index: 100;
+			/* Stay on top of other content */
+		}
+
+		@keyframes slow-shake {
+
+			0%,
+			100% {
+				transform: translateX(-30%);
+			}
+
+			25% {
+				transform: translateX(-35%);
+			}
+
+			/* Move slightly to the left */
+			75% {
+				transform: translateX(-40%);
+			}
+
+			/* Move slightly to the right */
+		}
+
+
+		/* Add animation class */
+		.get-app-btn.slow-shake {
+			animation: slow-shake 2s ease-in-out infinite;
+			/* Slow shake lasting 2 seconds */
+		}
+
+		.active {
+			text-decoration: underline;
+		}
+
+		/*active class*/
+		.nav-menu li a {
+			text-decoration: none;
+			color: white;
+			/* Default color */
+			padding: 10px;
+		}
+
+		.nav-menu li.active a {
+			color: whitesmoke;
+			/* Highlight color for active link */
+			text-decoration: white underline;
+			font-weight: bold;
+
+		}
+
+		/*
+/* Widget container 
+.widget {
+  background-color:#ff6600; /* Light transparent background 
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+/* Icon styling 
+.widget i {
+  color: #00bcd4; /* Primary color for icons 
+  margin-bottom: 10px;
+}
+
+/* Heading styling 
+.widget h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff; /* White text 
+  margin-bottom: 10px;
+}
+
+/* Description styling 
+.widget p {
+  font-size: 14px;
+  color: #f0f0f0; /* Light gray text for better readability 
+}
+
+/* Hover effect 
+.widget:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover 
+  background-color: rgba(255, 255, 255, 0.2); /* Brighter background on hover 
+}
+*/
+		/* .widget-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    margin-top: 30px;
+} */
+
+		/* .widget-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease;
+} */
+		/* 
+.widget-card:hover {
+    transform: translateY(-10px);
+} */
+
+		/* .widget-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+		/* .widget-text h4 {
+    font-size: 16px;
+    color: #343a40;
+    margin: 0;
+} */
+
+		/* .widget-text h2 {
+    font-size: 22px;
+    margin: 5px 0;
+    color: #343a40;
+} */
+
+		/* .widget-text .positive {
+    color: green;
+    font-size: 14px;
+} */
+		/* 
+.widget-text .negative {
+    color: red;
+    font-size: 14px;
+} */
+
+		/* .widget-icon {
+    background: linear-gradient(to right,#795fff, #ff6600);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 22px;
+} */
+
+		/* Responsive styles */
+		/* @media (max-width: 768px) {
+  .widget {
+    margin-bottom: 20px; /* Add spacing between widgets on smaller screens 
+  }
+} */
+		/* Add this CSS to your stylesheet */
+		.hospital-item {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 20px;
+			border: 1px solid #e0e0e0;
+			background-color: #f8f9fa;
+			border-radius: 8px;
+			margin-bottom: 20px;
+			font-family: 'Roboto', sans-serif;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+
+		.hospital-item .thumb {
+			width: 30%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.hospital-item .thumb img {
+			max-width: 100%;
+			border-radius: 4px;
+		}
+
+		.hospital-item .thumb ul.tags {
+			display: flex;
+			flex-direction: row;
+			gap: 10px;
+			margin-top: 15px;
+			flex-wrap: wrap;
+		}
+
+		.hospital-item .thumb ul.tags li {
+			list-style: none;
+		}
+
+		.hospital-item .thumb ul.tags li a {
+			background-color: #fff;
+			padding: 10px 15px;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			color: #333;
+			text-decoration: none;
+			font-weight: 500;
+			font-size: 14px;
+			text-align: center;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.hospital-item .thumb ul.tags li a:hover {
+			background-color: #f0f0f0;
+		}
+
+		.hospital-item .details {
+			width: 60%;
+			padding-left: 20px;
+		}
+
+		.hospital-item .details .title {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.hospital-item .details .titles h4 {
+			font-size: 22px;
+			font-weight: 600;
+			margin: 0;
+			color: #333;
+		}
+
+		.hospital-item .details .titles h6 {
+			font-size: 14px;
+			color: #7f7f7f;
+			margin-top: 5px;
+		}
+
+		.hospital-item .details p {
+			font-size: 14px;
+			margin: 10px 0;
+			color: #5a5a5a;
+		}
+
+		.hospital-item .details .address {
+			font-size: 13px;
+			color: #333;
+		}
+
+		.hospital-item .details .fa-location-dot {
+			color: #ff6b6b;
+		}
+
+		.hospital-item .details .fa-indian-rupee-sign {
+			color: #ff6b6b;
+		}
+
+		.hospital-item .details .fa-chart-line {
+			color: #4caf50;
+		}
+
+		.hospital-item .details h5 {
+			font-weight: 600;
+			color: #333;
+		}
+
+		.hospital-item .view-heart-container {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
+		.hospital-item .view-heart-container .heart-icon {
+			border: 1px solid #ccc;
+			padding: 10px;
+			border-radius: 4px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			background-color: #fff;
+			width: 40px;
+			height: 40px;
+		}
+
+		.hospital-item .view-heart-container .heart-icon:hover {
+			background-color: #f8f9fa;
+		}
+
+		.hospital-item .view-heart-container .view-button {
+			background-color: #fff;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			padding: 10px 20px;
+			font-size: 14px;
+			cursor: pointer;
+			text-align: center;
+			font-weight: 500;
+		}
+
+		.hospital-item .view-heart-container .view-button:hover {
+			background-color: #f0f0f0;
+		}
+
+		/* Default styles */
+		.welcome-message {
+			font-size: 2rem;
+			/* Default size for larger screens */
+			margin-bottom: 15px;
+			/* Space between welcome message and the quote */
+			color: black;
+			/* color:rgba(255, 152, 0, 1); */
+			padding: 10px;
+			border-radius: 10px;
+		}
+
+		.quote {
+			font-size: 3rem;
+			/* Default size for larger screens */
+		}
+
+		/* Responsive styles for mobile */
+		@media (max-width: 768px) {
+			.banner-content {
+				text-align: center;
+				/* Center-align text on smaller screens */
+				margin-top: 10px;
+			}
+
+			.welcome-message {
+				font-size: 1.5rem;
+				/* Adjust the welcome message size for mobile */
+				margin-bottom: 155px;
+				/* Increase space below the welcome message */
+			}
+
+			.quote {
+				font-size: 2rem;
+				/* Adjust quote size for mobile */
+			}
+		}
+
+		.feature-box {
+			height: 500px;
+			/* Set your desired fixed height */
+		}
+	</style>
+	<!-- Modal CSS -->
+	<style>
+		.modal {
+			display: none;
+			position: fixed;
+			z-index: index 9999;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+			justify-content: center;
+			align-items: center;
+		}
+
+		.modal-content {
+			background-color: #fff;
+			padding: 20px;
+			width: 90%;
+			/* Change to 90% for better fit on small screens */
+			max-width: 800px;
+			margin: auto;
+			position: relative;
+			border-radius: 10px;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+		}
+
+		.close-btn {
+			position: absolute;
+			top: 10px;
+			right: 20px;
+			font-size: 24px;
+			cursor: pointer;
+			color: #333;
+		}
+
+		.modal-features {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			/* Allows cards to wrap in smaller screens */
+			gap: 10px;
+			/* Adds spacing between cards */
+		}
+
+		.feature-card {
+			background-color: #f9f9f9;
+			/* Card background color */
+			border-radius: 10px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+			padding: 15px;
+			margin: 10px;
+			/* Space between cards */
+			flex: 1;
+			/* Allows cards to grow */
+			min-width: 220px;
+			/* Ensures a minimum width for cards */
+			text-align: center;
+			/* Center align text */
+			position: relative;
+			/* Position relative for badge icon */
+		}
+
+
+
+		h4 {
+			margin: 10px 0;
+			/* Space around titles */
+			font-weight: bold;
+			/* Bold titles */
+		}
+
+		p {
+			margin: 0;
+			/* No extra margin for paragraphs */
+			color: #555;
+			/* Slightly darker text for readability */
+		}
+
+		h2 {
+			margin-bottom: 20px;
+		}
+
+		#opcount {
+			color: #e64a19;
+		}
+
+		/* Responsive Adjustments */
+		@media (max-width: 600px) {
+			.modal-content {
+				width: 80%;
+				/* Make modal even wider on very small screens */
+				padding: 10px;
+				top: 0%;
+			}
+
+			.feature-card {
+				flex: 1 0 100%;
+				/* Stack cards vertically on small screens */
+				margin: 5px 0;
+				/* Adjust margin for stacked cards */
+			}
+		}
+
+		/* Overwrite the default color for the heart within .btns */
+		.btns .toggle-favourite .fas.fa-heart {
+			color: gray !important;
+			/* Default color */
+			font-weight: 1000;
+		}
+
+		/* Overwrite the active color for the filled heart within .btns */
+		.btns .toggle-favourite .fas.fa-heart.active {
+			color: red !important;
+			/* Active color */
+			font-weight: 1000;
+		}
+
+		/* Optional: Ensuring the button also gets a style (if needed) */
+		.btns .add-favourite {
+			background: none;
+			/* Remove button background */
+			border: none;
+			/* Remove button border */
+			padding: 0;
+			/* Remove padding */
+			cursor: pointer;
+			/* Change cursor to pointer */
+			font-weight: 1000;
+		}
+	</style>
+
+</head>
+
+<body>
+	<!-- start banner Area -->
+	<section class="banner-area relative" id="home">
+		<div class="overlay overlay-bg"></div>
+		<div class="container">
+			<div class="row fullscreen d-flex align-items-center justify-content-center">
+				<div class="banner-content col-lg-12 fadeInUp text-center">
+					{% if 'username' in session %}
+					<h2 class=" welcome-message">
+						Hello {{ session.username }}! ,Welcome to LocateMyCare
+					</h2>
+					{% endif %}
+					<h1 class="text-white quote">
+						The Health care you deserve from a team you can trust
+					</h1>
+					<form action="search.html" class="serach-form-area">
+						<div class="row justify-content-center form-wrap">
+							<div class="col-lg-4 form-cols">
+								<input type="text" class="form-control" name="search"
+									placeholder="Search Hospitals near your location">
+							</div>
+							<div class="col-lg-3 form-cols">
+								<div class="default-select" id="default-selects" style="position: relative;">
+									<input type="text" class="form-control" id="location-input"
+										placeholder="Detecting location..." readonly>
+									<i class="fa-solid fa-location-crosshairs" id="location-icon" aria-hidden="true"
+										style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+								</div>
+							</div>
+							<div class="col-lg-3 form-cols">
+								<div class="default-select" id="default-se
+								lects2">
+									<select>
+										<option id="problemSelect" onchange="navigateToPage()">By problem</option>
+										<option value="/category?problem=fever">Fever</option>
+										<option value="/category?problem=Headache">Headache</option>
+										<option value="/category?problem=emergency">Emergency</option>
+										<option value="/category?problem=stomach-pain">Stomach pain</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-lg-2 form-cols">
+								<button type="button" class="btn btn-info">
+									<span class="lnr lnr-magnifier"></span> Search
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- <a class="get-app-btn" href="" style="width: 100px;" id="getapp">Get App</a> -->
+	<!-- End banner Area -->
+	<!-- <div class="language-switcher-card">
+		<h6>Select Language</h6>
+		<button id="english-btn">English</button>
+		<button id="telugu-btn">తెలుగు</button>
+	</div> -->
+
+	<!-- Start features Area -->
+	<section class="features-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="single-feature fadeInUp" style="height: 130px;">
+						{% if 'username' in session %}
+						<!-- After login content -->
+						<h4 id="feature1-heading">My Appointments</h4>
+						<p id="feature1-desc">
+							my overall appointments
+						</p>
+						{% else %}
+						<!-- Before login content -->
+						<h4 id="feature1-heading">AI Chat</h4>
+						<div class="badge-icon">
+							<i class="fa-solid fa-crown" style="color: gold; font-size:30px;"></i>
+						</div>
+						<p id="feature1-desc">
+							Lorem ipsum dolor sit amet, consectetur adipisicing.
+						</p>
+						{% endif %}
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-6">
+					<div class="single-feature fadeInUp" style="height: 130px;">
+						{% if 'username' in session %}
+						<!-- After login content -->
+						<h4 id="feature2-heading">Upcoming appointments</h4>
+						<p id="feature2-desc">
+							my Upcoming appointments
+						</p>
+						{% else %}
+						<!-- Before login content -->
+						<h4 id="feature2-heading">Blood Bank</h4>
+						<div class="badge-icon">
+							<i class="fa-solid fa-crown" style="color: gold; font-size:30px;"></i>
+						</div>
+						<p id="feature2-desc">
+							Lorem ipsum dolor sit amet, consectetur adipisicing.
+						</p>
+						{% endif %}
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-6">
+					<div class="single-feature fadeInUp" style="height: 130px;">
+						{% if 'username' in session %}
+						<!-- After login content -->
+						<h4 id="feature3-heading">Favourites</h4>
+						<p id="feature3-desc">
+							My hospital Favourites
+						</p>
+						{% else %}
+						<!-- Before login content -->
+						<h4 id="feature3-heading">Ambulance Services</h4>
+						<div class="badge-icon">
+							<i class="fa-solid fa-crown" style="color: gold; font-size:30px;"></i>
+						</div>
+						<p id="feature3-desc">
+							Lorem ipsum dolor sit amet, consectetur adipisicing.
+						</p>
+						{% endif %}
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-6">
+					<div class="single-feature fadeInUp" style="height: 130px;">
+						{% if 'username' in session %}
+						<!-- After login content - Enable modal button -->
+						<h4 id="feature4-heading">Premium Features</h4>
+						<div class="badge-icon">
+							<i class="fa-solid fa-crown" style="color: gold; font-size:30px;"></i>
+						</div>
+						<p id="feature4-desc"></p>
+						<!-- Modal Trigger -->
+						<button id="openModalBtn" class="btn btn-primary button"
+							style="padding-left:3px; padding-right:3px !important;">View Premium Features</button>
+						{% else %}
+						<!-- Before login content - No modal button -->
+						<h4 id="feature4-heading">Home Visit Doctor</h4>
+						<div class="badge-icon">
+							<i class="fa-solid fa-crown" style="color: gold; font-size:30px;"></i>
+						</div>
+						<p id="feature4-desc">Unlock premium features</p>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End features Area -->
+	<!-- Modal Structure -->
+	<div id="featureModal" class="modal">
+		<div class="modal-content">
+			<span class="close-btn">&times;</span>
+			<h2 style="text-align: center;">All Premium Features</h2>
+			<div class="modal-features">
+				<div class="feature-card">
+					<h4>AI Chat</h4>
+					<div class="badge-icon">
+						<i class="fa-solid fa-crown" style="color: gold; font-size:30px;"></i>
+					</div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+				</div>
+				<div class="feature-card">
+					<h4>Blood Bank</h4>
+					<div class="badge-icon">
+						<i class="fa-solid fa-crown" style="color: gold; font-size:30px;"></i>
+					</div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+				</div>
+				<div class="feature-card">
+					<h4>Ambulance Services</h4>
+					<div class="badge-icon">
+						<i class="fa-solid fa-crown" style="color: gold; font-size:30px;"></i>
+					</div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- End features Area -->
+
+
+	<!-- Start popular-post Area -->
+	<section class="popular-post-area pt-100">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="active-popular-post-carusel">
+					<div class="single-popular-post d-flex flex-row" style="background-color: #000;">
+						<div class="thumb">
+							<img class="img-fluid" src="/static/img/p1.png" alt="">
+
+						</div>
+						<div class="details">
+							<a href="#">
+								<h4>Creative Designer</h4>
+							</a>
+							<h6>Los Angeles</h6>
+							<!-- <p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc
+								ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis.
+							</p> -->
+						</div>
+					</div>
+					<div class="single-popular-post d-flex flex-row" style="background-color: #000;">
+						<div class="thumb">
+							<img src="/static/img/p2.png" alt="">
+						</div>
+						<div class="details">
+							<a href="#">
+								<h4>Creative Designer</h4>
+							</a>
+							<h6>Los Angeles</h6>
+							<!-- <p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc
+								ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis.
+							</p> -->
+						</div>
+					</div>
+					<div class="single-popular-post d-flex flex-row" style="background-color: #000;">
+						<div class="thumb">
+							<img src="/static/img/p1.png" alt="">
+						</div>
+						<div class="details">
+							<a href="#">
+								<h4>Creative Designer</h4>
+							</a>
+							<h6>Los Angeles</h6>
+							<!-- <p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc
+								ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis.
+							</p> -->
+						</div>
+					</div>
+					<div class="single-popular-post d-flex flex-row" style="background-color: #000;">
+						<div class="thumb">
+							<img src="/static/img/p2.png" alt="">
+
+						</div>
+						<div class="details">
+							<a href="#">
+								<h4>Creative Designer</h4>
+							</a>
+							<h6>Los Angeles</h6>
+							<!-- <p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc
+								ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis.
+							</p> -->
+						</div>
+					</div>
+					<div class="single-popular-post d-flex flex-row" style="background-color: #000;">
+						<div class="thumb">
+							<img src="/static/img/p1.png" alt="">
+						</div>
+						<div class="details">
+							<a href="#">
+								<h4>Creative Designer</h4>
+							</a>
+							<h6>Los Angeles</h6>
+							<!-- <p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc
+								ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis.
+							</p> -->
+						</div>
+					</div>
+					<div class="single-popular-post d-flex flex-row" style="background-color: #000;">
+						<div class="thumb">
+							<img src="/static/img/p2.png" alt="">
+						</div>
+						<div class="details">
+							<a href="#">
+								<h4>Creative Designer</h4>
+							</a>
+							<h6>Los Angeles</h6>
+							<!-- <p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc
+								ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis.
+							</p> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End popular-post Area -->
+
+	<!-- Start feature-cat Area -->
+	<section class="feature-cat-area pt-100 fadeInLeft" id="category " style="animation-name: fadeInLeft;"></section>
+	<div class="container">
+		<div class="row d-flex justify-content-center">
+			<div class="menu-content pb-60 col-lg-10">
+				<div class="title text-center">
+					<h1 class="mb-10">Featured Hospitals near your location</h1>
+					<p>Discover Leading Hospitals Committed to Your Well-being</p>
+				</div>
+			</div>
+		</div>
+		<div class="row m-3">
+			<div class="col-lg-2 col-md-4 col-sm-6">
+				<a href="/category?type=general">
+					<div class="single-fcat">
+
+						<img src="/static/img/general.png" alt="" width="60px" height="60px">
+
+						<p>General Hospitals</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-lg-2 col-md-4 col-sm-6">
+				<a href="/category?type=cardiology">
+					<div class="single-fcat">
+
+						<img src="/static/img/humanheart.jpg" alt="" width="60px" height="60px">
+
+						<p>Cardiology</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-lg-2 col-md-4 col-sm-6">
+				<a href="/category?type=dermatology">
+					<div class="single-fcat">
+
+						<img src="/static/img/hand.png" alt="" width="60px" height="60px">
+
+						<p>Dermatology</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-lg-2 col-md-4 col-sm-6">
+				<a href="/category?type=neurology">
+					<div class="single-fcat">
+
+						<img src="/static/img/health.png" alt="" width="60px" height="60px">
+
+						<p>Neurology</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-lg-2 col-md-4 col-sm-6">
+				<a href="/category?type=gynecology">
+					<div class="single-fcat">
+
+						<img src="/static/img/maternity.png" alt="" width="60px" height="60px">
+
+						<p>Gynecology</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-lg-2 col-md-4 col-sm-6">
+				<a href="/category?type=orthopaedic">
+					<div class="single-fcat">
+
+						<img src="/static/img/ortho.png" alt="" width="60px" height="60px">
+
+						<p>Orthopaedic</p>
+					</div>
+				</a>
+			</div>
+
+
+		</div>
+		<div class="row m-3" id="category-2" style="display: none;">
+			<a href="/category?type=onocology">
+				<div class="col-lg-2 col-md-4 col-sm-6">
+					<div class="single-fcat">
+
+						<img src="/static/img/oncology.png" alt="" width="60px" height="60px">
+
+						<p>Oncology</p>
+					</div>
+			</a>
+		</div>
+		<div class="col-lg-2 col-md-4 col-sm-6">
+			<a href="/category?type=pulmonology">
+				<div class="single-fcat">
+
+					<img src="/static/img/pulmonology.webp" alt="" width="60px" height="60px">
+
+					<p>Pulmonology</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-lg-2 col-md-4 col-sm-6">
+			<a href="/category?type=opthalmology">
+				<div class="single-fcat">
+
+					<img src="/static/img/eye.png" alt="" width="60px" height="60px">
+
+					<p>Ophthalmology</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-lg-2 col-md-4 col-sm-6">
+			<a href="/category?type=nephrology">
+				<div class="single-fcat">
+
+					<img src="/static/img/nephrology.webp" alt="" width="60px" height="60px">
+
+					<p>Nephrology</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-lg-2 col-md-4 col-sm-6">
+			<a href="/category?type=heptaology">
+				<div class="single-fcat">
+
+					<img src="/static/img/hepatology.png" alt="" width="60px" height="60px">
+
+					<p>Heptalogy</p>
+				</div>
+			</a>
+
+		</div>
+		<div class="col-lg-2 col-md-4 col-sm-6">
+			<a href="/category?type=gastroenterology">
+				<div class="single-fcat">
+
+					<img src="/static/img/gastro.png" alt="" width="60px" height="60px">
+
+					<p>Gastroenterology</p>
+				</div>
+			</a>
+		</div>
+	</div>
+	</div>
+	</section>
+	<!-- End feature-cat Area -->
+	<!-- show button  -->
+	<div class="d-flex justify-content-center align-items-center m-4">
+		<button class="btn btn-primary" id="showbtn">Show All</button>
+	</div>
+	<!-- show button  -->
+	<!-- <div class="blog-slider">
+		<div class="blog-slider__wrp swiper-wrapper">
+			<div class="blog-slider__item swiper-slide d-flex">
+				<div class="blog-slider__img col-4">
+					<img src="/static/img/apollo.jfif" alt="">
+				</div>
+				<div class="blog-slider__content col-5">
+					<h3 class="blog-slider__title">Saty Kiran babu Hospitals</h3>
+					<p class="availability-status" style="color: green;">Available Now</p>
+					<p class="timings">Timings: 24</p>
+					<p>25 years in health care</p>
+					<p><i class="fas fa-map-marker-alt"></i>3rd floor MRLS hub,plot No:45,Jai Hind Enclave, Gandhi road
+					</p>
+					<p>Op price: ₹1000</p>
+					<p>Current OP count: ****</p>
+					<p>Login to see the current op count</p>
+				</div>
+				<div class="button-group col-3 btnt">
+					<button class="btn p2">Call</button>
+					<button class="btn p-2">Chat</button>
+					<button class="btn p-2 mt-10">Book Appointment</button>
+				</div>
+			</div>
+		</div>
+	</div> -->
+
+	<div>
+
+		<!-- Start post Area -->
+		<section class="">
+			<div class="container">
+				<div class="row justify-content-center d-flex">
+					<div class="col-lg-12 post-list">
+						<div class="hospital-list">
+							<!-- Hospitals will be dynamically inserted here -->
+						</div>
+
+						<a class="text-uppercase loadmore-btn mx-auto d-block" href="/">Load More hospitals</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<!-- end post area -->
+
+		<!-- Start callto-action Area -->
+		<section class="callto-action-area section-gap">
+			<div class="container">
+				<section class="popular-post-area">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="active-popular-post-carusel">
+								<div class="single-popular-post d-flex flex-row">
+
+									<div class="details">
+										<h3>Your Health, Our Priority </h3>
+
+										<h5>Explore our list of hospitals committed to providing exceptional healthcare.
+										</h5>
+
+									</div>
+								</div>
+								<div class="single-popular-post d-flex flex-row">
+
+									<div class="details">
+										<h3 style="text-decoration: none;">Trusted Hospitals, Trusted Care </h3>
+
+										<h5 style="text-decoration: none;">Find the best hospitals that deliver quality
+											healthcare services you can rely on
+										</h5>
+									</div>
+								</div>
+								<div class="single-popular-post d-flex flex-row">
+
+									<div class="details">
+										<h3 style="text-decoration: none;">Your Health, Your Choice</h3>
+
+										<h5 style="text-decoration: none;">Choose from the finest hospitals with
+											confidence.
+										</h5>
+									</div>
+								</div>
+								<div class="single-popular-post d-flex flex-row">
+
+									<div class="details">
+										<h3 style="text-decoration: none;">Your Health, Our Priority </h3>
+
+										<h5 style="text-decoration: none;">Explore our list of hospitals committed to
+											providing exceptional healthcare.
+										</h5>
+									</div>
+								</div>
+								<div class="single-popular-post d-flex flex-row">
+
+									<div class="details">
+
+										<h3 style="text-decoration: none;">Expert Care, Every Timee </h3>
+
+										<h5 style="text-decoration: none;">Discover hospitals that prioritize your
+											well-being with top-notch care.</h5>
+									</div>
+								</div>
+								<div class="single-popular-post d-flex flex-row">
+
+									<div class="details">
+										<h3 style="text-decoration: none;">Your Health, Our Priority </h3>
+
+										<h5 style="text-decoration: none;">Connect with hospitals that deliver
+											excellence in
+											healthcare.</h5>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</section>
+		<!-- End calto-action Area -->
+		<!-- Modal for Upcoming Feature -->
+		<div class="modal fade" id="upcomingFeatureModal" tabindex="-1" aria-labelledby="upcomingFeatureModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="upcomingFeatureModalLabel">Upcoming Feature</h5>
+					</div>
+					<div class="modal-body">
+						This feature is coming soon! Stay tuned for updates.
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- start footer Area -->
+		<footer>
+			<div class="bg-dark">
+				<div class="row footer-bottom align-items-center justify-content-between">
+					<div class="footer-text">
+						Copyright &copy;
+						<script>document.write(new Date().getFullYear());</script> All rights reserved by BAtalks
+					</div>
+					<a href="mailto:contact@batalks.com" class="mx-2">
+						<i class="fa fa-envelope-square" style="font-size:24px"></i>
+						<span>contact@batalks.com</span>
+					</a>
+					<a href="tel:+918341322771" class="mx-2">
+						<i class="fa fa-phone" style="font-size:24px"></i>
+						<span>+918341322771</span>
+					</a>
+					<div class="d-flex">
+						<a href="https://www.facebook.com/people/BA-Talks/61561068777682/" target="_blank" class="mx-2">
+							<i class="fa fa-facebook-f" style="font-size:24px"></i>
+						</a>
+						<a href="https://www.instagram.com/batalkspvtltd/" target="_blank" class="mx-2">
+							<i class="fa fa-instagram" style="font-size:24px"></i>
+						</a>
+						<a href="https://api.whatsapp.com/send/?phone=%2B918341322771&text&type=phone_number&app_absent=0"
+							target="_blank" class="mx-2">
+							<i class="fa fa-whatsapp" style="font-size:24px"></i>
+						</a>
+						<a href="https://www.linkedin.com/company/ba-talks-pvt-ltd/" target="_blank" class="mx-2">
+							<i class="fa fa-linkedin" style="font-size:24px"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script src="/static/js/vendor/jquery-2.2.4.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+			crossorigin="anonymous"></script>
+		<script src="/static/js/vendor/bootstrap.min.js"></script>
+		<script type="text/javascript"
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+		<script src="/static/js/easing.min.js"></script>
+		<script src="/static/js/hoverIntent.js"></script>
+		<script src="/static/js/superfish.min.js"></script>
+		<script src="/static/js/jquery.ajaxchimp.min.js"></script>
+		<script src="/static/js/jquery.magnific-popup.min.js"></script>
+		<script src="/static/js/owl.carousel.min.js"></script>
+		<script src="/static/js/jquery.sticky.js"></script>
+		<script src="/static/js/jquery.nice-select.min.js"></script>
+		<script src="/static/js/parallax.min.js"></script>
+		<script src="/static/js/mail-script.js"></script>
+		<script src="/static/js/main.js"></script>
+
+
+
+		<script>
+			window.onload = function () {
+				getLocation();
+			};
+
+			// Function to get user's current location
+			function getLocation() {
+				const locationInput = document.getElementById('location-input');
+
+				if (navigator.geolocation) {
+					console.log('Geolocation is supported. Fetching location...');
+					navigator.geolocation.getCurrentPosition(success, showError, { enableHighAccuracy: true });
+				} else {
+					alert("Geolocation is not supported by this browser.");
+					locationInput.value = 'Geolocation not supported';
+				}
+
+				function success(position) {
+					const latitude = position.coords.latitude;
+					const longitude = position.coords.longitude;
+
+					console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+
+					// Reverse geocoding to get area name
+					fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`)
+						.then(response => {
+							if (!response.ok) {
+								throw new Error('Failed to fetch location details.');
+							}
+							return response.json();
+						})
+						.then(data => {
+							console.log("Geocoding API response:", data);  // Log the full response for debugging
+							const locality = data.locality || 'Unknown locality';
+							const principalSubdivision = data.principalSubdivision || 'Unknown region';
+							locationInput.value = `${locality}, ${principalSubdivision}`;  // Display the area name
+
+							// Send user location to the backend
+							return fetch('/', {
+								method: 'POST',
+								headers: {
+									'Content-Type': 'application/json'
+								},
+								body: JSON.stringify({
+									latitude: latitude,
+									longitude: longitude
+								})
+							});
+						})
+						.then(response => response.json()) // Assuming server returns a JSON array of hospitals
+						.then(hospitals => {
+							console.log("Received data from server:", hospitals);
+							displayHospitals(hospitals);  // Update the UI with hospital data
+						})
+						.catch(error => console.error('Error:', error));
+				}
+
+				// Handle errors in geolocation
+				function showError(error) {
+					const locationInput = document.getElementById('location-input');
+					switch (error.code) {
+						case error.PERMISSION_DENIED:
+							alert("User denied the request for Geolocation.");
+							locationInput.value = 'Permission denied';
+							break;
+						case error.POSITION_UNAVAILABLE:
+							alert("Location information is unavailable.");
+							locationInput.value = 'Location unavailable';
+							break;
+						case error.TIMEOUT:
+							alert("The request to get user location timed out.");
+							locationInput.value = 'Request timed out';
+							break;
+						case error.UNKNOWN_ERROR:
+							alert("An unknown error occurred.");
+							locationInput.value = 'Unknown error';
+							break;
+					}
+				}
+			}
+
+			function displayHospitals(hospitals) {
+				const hospitalList = document.querySelector('.hospital-list');
+				hospitalList.innerHTML = ''; // Clear the list before adding new items
+
+				if (!hospitals || hospitals.length === 0) {
+					hospitalList.innerHTML = '<p>No nearby hospitals found within 5km of your location.</p>';
+				} else {
+					hospitals.forEach(hospital => {
+						const hospitalItem = `
+            <div class="blog-slider">
+                <div class="blog-slider__wrp swiper-wrapper">
+                    <div class="blog-slider__item swiper-slide d-flex">
+                        <div class="blog-slider__img col-4">
+                            <img src="/static/img/apollo.jfif" alt="Hospital Image">
+                        </div>
+                        <div class="blog-slider__content col-5">
+                            <h3 class="blog-slider__title">${hospital.hospital_name}</h3>
+                            <p class="availability-status" style="color: green;">Available Now</p>
+                            <p class="timings"><strong>Timings:</strong> ${hospital.timings}</p>
+                            <p>${hospital.years_since_established} years in healthcare</p>
+                            <p><i class="fas fa-map-marker-alt"></i> ${hospital.address}</p>
+                            <p>Op price: ₹${hospital.opcard_price}</p>
+                            <p class="current-op-count">
+                                <strong>Current OP count:</strong> 
+                                <span onclick="alert('Please login to see the current OP count.')">**</span>
+                            </p>
+                        </div>
+                        <div class="button-group col-3 btnt">
+                            <button class="btn p-2 call-btn" data-hospital-id="${hospital.hospital_id}">Call</button>
+                            <button class="btn p-2 chat-btn" data-hospital-id="${hospital.hospital_id}">Chat</button>
+                            <button class="btn p-2 mt-10" data-bs-toggle="modal" data-bs-target="#appointmentModal${hospital.hospital_id}">Book Appointment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Appointment Modal -->
+            <div class="modal fade" id="appointmentModal${hospital.hospital_id}" tabindex="-1" aria-labelledby="appointmentModalLabel${hospital.hospital_id}" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="appointmentModalLabel${hospital.hospital_id}">Book Appointment - ${hospital.hospital_name}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="text-center">
+                                <button class="btn btn-primary m-2 new-patient-btn" data-hospital-id="${hospital.hospital_id}">New Patient</button>
+                                <button class="btn btn-primary m-2 existing-patient-btn" data-hospital-id="${hospital.hospital_id}">Already a Patient</button>
+                            </div>
+                            <form id="newPatientForm${hospital.hospital_id}" class="new-patient-form" style="display: none;" method="POST" action="/bookappointment">
+                                      <input type="hidden" name="appointmentDate" value="" id="appointmentDateHidden${hospital.hospital_id}">
+                                      <label for="firstName">First Name:</label>
+                                      <input type="text" name="firstName" placeholder="First name" class="form-control" required>
+  
+                                      <label for="lastName">Last Name:</label>
+                                      <input type="text" name="lastName" placeholder="Last name" class="form-control" required>
+  
+                                      <label for="number">Phone Number:</label>
+                                      <input type="text" name="number" placeholder="Phone number" class="form-control" required>
+  
+                                      <label for="address">Address:</label>
+                                      <input type="text" name="address" placeholder="Your address" class="form-control" required>
+  
+                                      <label for="reason">Reason for your Appointment:</label>
+                                      <input type="text" name="reason" placeholder="Reason for appointment" class="form-control" required>
+  
+                                      <label for="appointmentDate">Select Date:</label>
+                                      <input type="date" name="appointmentDate" class="form-control" required>
+  
+                                      <button type="submit" class="btn btn-success mt-3">Book Appointment</button>
+                                  </form>
+                                 <form id="existingPatientForm${hospital.hospital_id}" class="existing-patient-form" style="display: none;" method="POST" action="/bookappointment">
+                                      <input type="hidden" name="appointmentDate" value="" id="appointmentDateHidden${hospital.hospital_id}">
+                                      <label for="opName">Name on OP Card:</label>
+                                      <input type="text" name="opName" placeholder="Name on OP card" class="form-control" required>
+  
+                                      <label for="opPhone">Phone Number on OP Card:</label>
+                                      <input type="text" name="opPhone" placeholder="Phone number on OP card" class="form-control" required>
+  
+                                      <label for="opNumber">OP Number:</label>
+                                      <input type="text" name="opNumber" placeholder="OP number" class="form-control" required>
+  
+                                      <button type="submit" class="btn btn-success mt-3">Book Appointment</button>
+                                  </form>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+
+						hospitalList.innerHTML += hospitalItem;
+					});
+
+					// Add event listeners for Call and Chat buttons to display "coming soon" modals
+					document.querySelectorAll('.call-btn, .chat-btn').forEach(button => {
+						button.addEventListener('click', (e) => {
+							e.preventDefault();
+							alert('This feature is coming soon.');
+						});
+					});
+
+					// Toggle between New Patient and Existing Patient forms in the modal
+					hospitalList.addEventListener('click', function (event) {
+						const target = event.target;
+						const hospitalId = target.dataset.hospitalId;
+						if (target.classList.contains('new-patient-btn')) {
+							document.getElementById(`newPatientForm${hospitalId}`).style.display = 'block';
+							document.getElementById(`existingPatientForm${hospitalId}`).style.display = 'none';
+						}
+						if (target.classList.contains('existing-patient-btn')) {
+							document.getElementById(`newPatientForm${hospitalId}`).style.display = 'none';
+							document.getElementById(`existingPatientForm${hospitalId}`).style.display = 'block';
+						}
+					});
+				}
+			}
+
+		</script>
+		<script>
+			document.getElementById('showbtn').addEventListener('click', function () {
+				var hiddenCategories = document.getElementById('category-2');
+				if (hiddenCategories.style.display === 'none') {
+					hiddenCategories.style.display = 'flex'; // Shows the hidden categories
+					this.textContent = 'Show Less'; // Changes button text
+				} else {
+					hiddenCategories.style.display = 'none'; // Hides the categories again
+					this.textContent = 'Show All'; // Resets button text
+				}
+			});
+
+
+			// Header links by problem
+			function navigateToPage() {
+				var select = document.getElementById("problemSelect");
+				var selectedValue = select.options[select.selectedIndex].value;
+				if (selectedValue) {
+					window.location.href = selectedValue;
+				}
+			}
+		</script>
+		<script>
+			// Add this script to your HTML
+			window.addEventListener('scroll', function () {
+				const navbar = document.querySelector('.navbar');
+				if (window.scrollY > 50) { // Change this value to control when the effect starts
+					navbar.classList.add('scrolled');
+				} else {
+					navbar.classList.remove('scrolled');
+				}
+			});
+		</script>
+
+		<!-- Modal JavaScript -->
+		<script>
+			// Get modal element
+			var modal = document.getElementById('featureModal');
+
+			// Get the button that opens the modal
+			var btn = document.getElementById('openModalBtn');
+
+			// Get the close button element
+			var closeBtn = document.getElementsByClassName('close-btn')[0];
+
+			// When the user clicks the button, open the modal
+			btn.onclick = function () {
+				modal.style.display = 'flex'; // Display the modal
+			}
+
+			// When the user clicks on close button (x), close the modal
+			closeBtn.onclick = function () {
+				modal.style.display = 'none'; // Hide the modal
+			}
+
+			// Close the modal if the user clicks outside the modal content
+			window.onclick = function (event) {
+				if (event.target == modal) {
+					modal.style.display = 'none';
+				}
+			}
+
+
+		</script>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				// Check if modal button exists (only after login)
+				const openModalBtn = document.getElementById("openModalBtn");
+				if (openModalBtn) {
+					const modal = document.getElementById("featureModal");
+					const closeBtn = document.querySelector(".close-btn");
+
+					// Open modal when button is clicked
+					openModalBtn.addEventListener("click", function () {
+						modal.style.display = "flex"; // Show modal
+					});
+
+					// Close modal when the close button is clicked
+					closeBtn.addEventListener("click", function () {
+						modal.style.display = "none"; // Hide modal
+					});
+
+					// Close modal when clicking outside the modal content
+					window.addEventListener("click", function (event) {
+						if (event.target === modal) {
+							modal.style.display = "none"; // Hide modal
+						}
+					});
+				}
+			});
+
+		</script>
+		<script>
+			var swiper = new Swiper('.blog-slider', {
+				spaceBetween: 30,
+				effect: 'fade',
+				loop: true,
+				mousewheel: {
+					invert: false,
+				},
+				// autoHeight: true,
+				pagination: {
+					el: '.blog-slider__pagination',
+					clickable: true,
+				}
+			});
+		</script>
+
+
+
+</body>
+
+</html>

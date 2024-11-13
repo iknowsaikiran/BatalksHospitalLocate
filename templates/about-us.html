@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="img/fav.png">
+	<!-- Author Meta -->
+	<meta name="author" content="codepixer">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>Hospital Listing</title>
+	{% include 'header.html' %}
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+		<!--
+		CSS
+		============================================= -->
+		<link rel="stylesheet" href="/static/css/linearicons.css">
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/css/bootstrap.css">
+		<link rel="stylesheet" href="/static/css/magnific-popup.css">
+		<link rel="stylesheet" href="/static/css/nice-select.css">					
+		<link rel="stylesheet" href="/static/css/animate.min.css">
+		<link rel="stylesheet" href="/static/css/owl.carousel.css">
+		<link rel="stylesheet" href="/static/css/main.css">
+		<style>
+			body{
+				overflow-x: hidden;
+			}
+			.single-feature{
+				position: relative;
+			}
+			#prem{
+				position: absolute;
+				bottom:60px;
+				left: 180px;
+			}
+			 .badge-icon {
+				position: absolute;
+				top: -10px;
+				right: -10px;
+				
+				border-radius: 50%;
+				padding: 5px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.single-feature {
+				position: relative;
+				padding: 20px;
+				border: 1px solid #ddd;
+				border-radius: 8px;
+				background-color: #fff;
+		   }
+		   .nav-menu a {
+				padding: 6px 10px;
+				text-decoration: none;
+				display: inline-block;
+				color: #fff;
+				font-weight: 400;
+				font-size: 16px;
+				text-transform: uppercase;
+				outline: none;
+			}
+			.sticky{
+		
+				position:sticky;
+			
+				bottom: 0;
+				padding: 5px;
+				margin: 10px;
+				width: 300px;
+				float: right;
+			}
+			.sticky h1{
+				color: orangered;
+			}
+			
+.section-gap{
+padding:50px 0;
+}
+.single-popular-post {
+background-color: lavender;
+padding:50px;
+color: #000;
+}
+.single-popular-post h1{
+color: #000;
+}
+.get-app{
+margin-left:10px ;
+}
+/* Styling for the Get App now button */
+.get-app-btn {
+display: inline-block;
+padding: 10px 10px;
+background-color: #ff5722; /* Change to your preferred color */
+color: #fff;
+border-radius: 50px; /* Rounded appearance */
+font-weight: bold;
+text-align: center;
+text-decoration: none;
+margin-left: 15px;
+text-transform: lowercase;
+transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.get-app-btn:hover {
+background-color: #e64a19; /* Slightly darker color for hover state */
+}
+
+/* Additional adjustments for Get App now button */
+.get-app {
+margin-left: auto; /* Pushes the Get App button to the far right */
+}
+
+.get-app-btn:focus {
+outline: none;
+box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.5); /* Optional focus state styling */
+}	
+.register-btn {
+display: inline-block;
+padding: 10px 20px;
+width:400px;
+background:orangered; /* Gradient background */
+color: #fff;
+border: none;
+border-radius: 25px; /* Rounded corners */
+font-size: 16px;
+text-align: center;
+text-decoration: none;
+transition: background 0.3s ease, transform 0.3s ease;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.register-btn:hover {
+background:orangered; /* Reverse gradient on hover */
+transform: translateY(-2px); /* Lift effect on hover */
+box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+.get-app-btn:hover {
+background:orangered; /* Reverse gradient on hover */
+transform: translateY(-2px); /* Lift effect on hover */
+box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+.register-btn:active {
+transform: translateY(0); /* Remove lift effect when clicking */
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Restore original shadow */
+}
+.get-app-btn,
+.register-btn {
+display: inline-block;
+background-color: #ff9800; /* Original background color */
+color: white;
+border-radius: 20px;
+padding: 10px 20px;
+text-align: center;
+text-decoration: none;
+transition: all 0.3s ease;
+font-size: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+.get-app-btn,
+.register-btn {
+	background-color: transparent;
+	color: #333; /* Use a standard text color */
+	border: none; /* Remove border */
+	padding: 0; /* Remove padding */
+	margin-left: 0;
+	text-align: left;
+	font-size: 14px; /* Slightly smaller font */
+}
+
+.get-app-btn:hover,
+.register-btn:hover {
+	text-decoration: underline; /* Add underline on hover for better interaction feedback */
+}
+
+.get-app,
+.register {
+	margin: 10px 0;
+	width: 0;
+   
+}
+
+.nav-menu li {
+	margin: 5px 0;
+	display: block;
+	text-align: center;
+}
+}
+
+
+/* Footer Base Styling */
+/* Base Styling for Footer */
+/* Base Styling for Footer */
+/* Base Styling for Footer */
+/* Base Styling for Footer */
+footer {
+background-color: #343a40; /* Dark background color */
+color: #fff; /* White text color */
+padding: 20px 20px; /* Vertical padding */
+}
+
+.footer-bottom {
+display: flex;
+flex-wrap: nowrap; /* Prevents wrapping on larger screens */
+align-items: center;
+justify-content: space-between; /* Space between items */
+padding: 10px 0; /* Vertical padding */
+text-align: left; /* Left-align text by default */
+}
+
+.footer-text {
+margin: 0;
+font-size: 14px;
+flex: 1; /* Takes available space without forcing new lines */
+}
+
+.footer-bottom .d-flex {
+display: flex;
+align-items: center;
+justify-content: flex-end; /* Aligns items to the right */
+flex-wrap: nowrap; /* Prevents wrapping on larger screens */
+}
+
+.footer-bottom .mx-2 {
+margin: 0 8px; /* Margin between icons and text */
+}
+
+.footer-bottom .text-white {
+color: #fff;
+}
+
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+.footer-bottom {
+	flex-direction: column; /* Stack elements vertically on small screens */
+	gap: 5px; /* Reduce gap for small screens */
+}
+
+.footer-bottom a {
+	margin: 5px 0; /* Adjust margin for small screens */
+}
+
+.footer-bottom .d-flex {
+	justify-content: center; /* Center the social icons on small screens */
+	margin-top: 5px; /* Adjust top margin */
+}
+}
+
+
+@media (min-width: 768px) {
+.single-popular-post {
+	flex-direction: row; /* Side-by-side on larger screens */
+	align-items: center;
+}
+
+.details h3 {
+	font-size:20px;
+}
+
+.details h5 {
+	font-size: 18px;
+}
+}
+
+@media (max-width: 767px) {
+.single-popular-post {
+	width: 100%; /* Ensure it takes up full width on small screens */
+}
+
+.details h3 {
+	font-size: 20px;
+}
+
+.details h5 {
+	font-size: 14px;
+}
+}
+
+/* Keyframes for fadeInUp animation */
+@-webkit-keyframes fadeInUp {
+from {
+opacity: 0;
+-webkit-transform: translate3d(0, 100%, 0);
+transform: translate3d(0, 100%, 0);
+}
+
+to {
+opacity: 1;
+-webkit-transform: translate3d(0, 0, 0);
+transform: translate3d(0, 0, 0);
+}
+}
+
+@keyframes fadeInUp {
+from {
+opacity: 0;
+-webkit-transform: translate3d(0, 100%, 0);
+transform: translate3d(0, 100%, 0);
+}
+
+to {
+opacity: 1;
+-webkit-transform: translate3d(0, 0, 0);
+transform: translate3d(0, 0, 0);
+}
+}
+
+/* Animation class */
+.fadeInUp {
+-webkit-animation-name: fadeInUp;
+animation-name: fadeInUp;
+-webkit-animation-duration: 1s;
+animation-duration: 1s;
+-webkit-animation-timing-function: ease-in-out;
+animation-timing-function: ease-in-out;
+/* animation-delay: 12s; */
+/* animation-iteration-count: infinite; */
+}
+.fadeInLeft{
+-webkit-animation-name: fadeInLeft;
+animation-name: fadeInLeft;
+-webkit-animation-duration: 1s;
+animation-duration: 1s;
+-webkit-animation-timing-function: ease-in-out;
+animation-timing-function: ease-in-out;
+/* animation-delay: 12s; */
+/* animation-iteration-count: infinite; */
+}
+.fadeInLeft.show {
+opacity: 1;
+transform: translate3d(0, 0, 0);
+}
+.fadeInUp {
+-webkit-animation-name: fadeInUp;
+animation-name: fadeInUp;
+-webkit-animation-duration: 1s;
+animation-duration: 1s;
+-webkit-animation-timing-function: ease-in-out;
+animation-timing-function: ease-in-out;
+}
+@-webkit-keyframes fadeInLeft {
+from {
+opacity: 0;
+-webkit-transform: translate3d(-100%, 0, 0);
+transform: translate3d(-100%, 0, 0);
+}
+
+to {
+opacity: 1;
+-webkit-transform: translate3d(0, 0, 0);
+transform: translate3d(0, 0, 0);
+}
+}
+
+@keyframes fadeInLeft {
+from {
+opacity: 0;
+-webkit-transform: translate3d(-100%, 0, 0);
+transform: translate3d(-100%, 0, 0);
+}
+
+to {
+opacity: 1;
+-webkit-transform: translate3d(0, 0, 0);
+transform: translate3d(0, 0, 0);
+}
+}
+
+.fadeInLeft {
+-webkit-animation-name: fadeInLeft;
+animation-name: fadeInLeft;
+}
+.language-switcher-card {
+border: 1px solid #ccc;
+border-radius: 8px;
+padding: 10px;
+background-color: #f9f9f9;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+text-align: center;
+max-width: 300px;
+margin: 0 auto;
+position: absolute;
+top: 10px;
+right: 3px;
+}
+
+.language-switcher-card h3 {
+margin-bottom: 10px;
+}
+
+.language-switcher-card button {
+background-color: rgb(119, 119, 227);
+color: #fff;
+border: none;
+border-radius: 4px;
+padding: 6px 12px;
+margin: 2px;
+cursor: pointer;
+font-size: 12px;
+}
+
+.language-switcher-card button:hover {
+background-color:rgb(102, 102, 221);
+}
+
+.active{
+	text-decoration: underline;
+}
+/*active class*/
+.nav-menu li a {
+  text-decoration: none;
+  color:white; /* Default color */
+  padding: 10px;
+}
+
+.nav-menu li.active a {
+  color:whitesmoke; /* Highlight color for active link */
+  text-decoration:white underline;
+  font-weight: bold;
+  
+}
+		</style>
+	</head>
+	<body>
+		<!-- Main Header -->
+ 
+		<!-- start banner Area -->
+		<section class="banner-area relative" id="home">	
+			<div class="overlay overlay-bg"></div>
+			<div class="container">
+				<div class="row d-flex align-items-center justify-content-center">
+					<div class="about-content col-lg-12">
+						<h1 class="text-white">
+							About Us				
+						</h1>	
+						<p class="text-white link-nav"><a href="/">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href=""> About Us</a></p>
+					</div>											
+				</div>
+			</div>
+		</section>
+		<!-- End banner Area -->	
+			
+		<!-- Start service Area -->
+		<section class="service-area section-gap" id="service">
+			<div class="container">
+				<div class="row d-flex justify-content-center">
+					<div class="col-md-8 pb-40 header-text">
+						<h1>Why Choose Us</h1>
+						<p>
+							Our mission is to connect you with the best healthcare providers through a reliable, transparent, and user-friendly platform, ensuring that you receive the quality care you deserve.
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-6">
+						<div class="single-service">
+							<h4><span class="lnr lnr-user"></span>Verified Network</h4>
+							<p>
+								Access a network of verified hospitals and specialists, ensuring every option is credible and authentic. Our stringent verification process guarantees you only see trusted providers.
+							</p>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<div class="single-service">
+							<h4><span class="lnr lnr-license"></span>Real Hospital Images</h4>
+							<p>
+								View genuine images of hospitals to get a true sense of the facilities, enhancing trust and confidence in the care you will receive. This visual confirmation helps you make informed choices.								</p>								
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<div class="single-service">
+							<h4><span class="lnr lnr-phone"></span>Informed Comparisons</h4>
+							<p>
+								Compare hospitals using accurate service data, authentic ratings, and transparent costs. This allows you to make confident decisions based on detailed and reliable information.
+							</p>								
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<div class="single-service">
+							<h4><span class="lnr lnr-rocket"></span>Effortless Booking</h4>
+							<p>
+								Securely book appointments through our user-friendly platform, which verifies all hospital information for reliability. Enjoy a smooth and trustworthy booking experience with minimal hassle.
+							</p>				
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<div class="single-service">
+							<h4><span class="lnr lnr-diamond"></span>Transparent Pricing</h4>
+							<p>
+								Access clear, verified pricing and insurance details to avoid unexpected costs. Our transparent approach ensures you understand all financial aspects before making a commitment.
+							</p>								
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<div class="single-service">
+							<h4><span class="lnr lnr-bubble"></span>Authentic Patient Reviews</h4>
+							<p>
+								Read real patient reviews and ratings to evaluate the quality and credibility of care. Supported by verified hospital images, these reviews provide a comprehensive view of what to expect.
+							</p>									
+						</div>
+					</div>						
+				</div>
+			</div>	
+		</section>
+		<!-- End service Area -->						
+
+		<!-- Start feature Area -->
+		<section class="feature-area">
+			<div class="container-fluid">
+				<div class="row justify-content-center align-items-center">
+					<div class="col-lg-3 feat-img no-padding">
+						<img class="img-fluid" src="/static/img/pages/f1.jpg" alt="">
+					</div>
+					<div class="col-lg-3 no-padding feat-txt">
+						
+						<h1 style="color: #ccc;">Who we are</h1>
+						<p>
+							We are an innovative voice assistant platform that links you with verified, trusted hospitals. By providing real images and reliable information, we streamline access to quality healthcare and support informed decision-making.
+						</p>
+					</div>
+					<div class="col-lg-3 feat-img no-padding">
+						<img class="img-fluid" src="/static/img/pages/f2.jpg" alt="">							
+					</div>
+					<div class="col-lg-3 no-padding feat-txt">
+					
+						<h1 style="color: #ccc;">What we do</h1>
+						<p>
+							We leverage advanced voice assistant technology to connect you with verified hospitals, offering real images and reliable information. This approach simplifies your search for quality healthcare and ensures informed, confident decisions.
+						</p>
+					</div>
+				</div>
+			</div>	
+		</section>
+		<!-- End feature Area -->
+
+		<!-- Start team Area -->
+		
+		<!-- End team Area -->			
+
+
+		
+	
+			
+		 <!-- start footer Area -->		
+		 <footer>
+			<div class="bg-dark">
+				<div class="row footer-bottom  ">
+					<div class="footer-text">
+						Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by BAtalks
+					</div>
+					<div class="d-flex">
+						<a href="mailto:contact@batalks.com" class="mx-2">
+							<i class="fa fa-envelope-square" style="font-size:24px"></i>
+							<span>contact@batalks.com</span>
+						</a>
+						<a href="tel:+918341322771" class="mx-2">
+							<i class="fa fa-phone" style="font-size:24px"></i>
+							<span>+918341322771</span>
+						</a>
+					</div>
+					
+					<div class="d-flex">
+						<a href="https://www.facebook.com/people/BA-Talks/61561068777682/" target="_blank" class="mx-2">
+							<i class="fa fa-facebook-f" style="font-size:24px"></i>
+						</a>
+						<a href="https://www.instagram.com/batalkspvtltd/" target="_blank" class="mx-2">
+							<i class="fa fa-instagram" style="font-size:24px"></i>
+						</a>
+						<a href="https://api.whatsapp.com/send/?phone=%2B918341322771&text&type=phone_number&app_absent=0" target="_blank" class="mx-2">
+							<i class="fa fa-whatsapp" style="font-size:24px"></i>
+						</a>
+						<a href="https://www.linkedin.com/company/ba-talks-pvt-ltd/" target="_blank" class="mx-2">
+							<i class="fa fa-linkedin" style="font-size:24px"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+		
+					
+
+					
+
+		<script src="/static/js/vendor/jquery-2.2.4.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="/static/js/vendor/bootstrap.min.js"></script>			
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+		<script src="/static/js/easing.min.js"></script>			
+		<script src="/static/js/hoverIntent.js"></script>
+		<script src="/static/js/superfish.min.js"></script>	
+		<script src="/static/js/jquery.ajaxchimp.min.js"></script>
+		<script src="/static/js/jquery.magnific-popup.min.js"></script>	
+		<script src="/static/js/owl.carousel.min.js"></script>			
+		<script src="/static/js/jquery.sticky.js"></script>
+		<script src="/static/js/jquery.nice-select.min.js"></script>			
+		<script src="/static/js/parallax.min.js"></script>		
+		<script src="/static/js/mail-script.js"></script>	
+		<script src="/static/js/main.js"></script>	
+	</body>
+</html>
+
+
+
