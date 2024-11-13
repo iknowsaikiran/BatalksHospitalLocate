@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Mobile Specific Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/fav.png">
+  <!-- Meta Information -->
+  <meta name="author" content="codepixer">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta charset="UTF-8">
+  <!-- Site Title -->
+  <title>Hospital Listing</title>
+
+  <!-- Font Awesome (Ensure only one link) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="/static/css/linearicons.css">
+  <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/css/magnific-popup.css">
+  <link rel="stylesheet" href="/static/css/nice-select.css">
+  <link rel="stylesheet" href="/static/css/animate.min.css">
+  <link rel="stylesheet" href="/static/css/owl.carousel.css">
+  <link rel="stylesheet" href="/static/css/main.css">
+  <style>
+    #header {
+      padding: 14px 0;
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      transition: all 0.5s;
+      z-index: 997;
+    }
+
+    #header.header-scrolled {
+      background: rgba(0, 0, 0, 0.8);
+      transition: all 0.5s;
+    }
+
+    @media (max-width: 673px) {
+      #logo {
+        margin-left: 20px;
+      }
+    }
+
+    #header #logo h1 {
+      font-size: 34px;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    #header #logo h1 a,
+    #header #logo h1 a:hover {
+      color: #fff;
+      padding-left: 10px;
+      border-left: 4px solid #49e4fa;
+    }
+
+    #header #logo img {
+      padding: 0;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      #header #logo h1 {
+        font-size: 28px;
+      }
+
+      #header #logo img {
+        max-height: 71px;
+      }
+    }
+
+    .ticker-btn {
+      background: #49e4fa;
+      color: #fff;
+      padding: 6px 20px !important;
+      text-transform: uppercase;
+    }
+
+    .ticker-btn:hover {
+      background: rgba(73, 228, 250, 0.2);
+      color: #49e4fa;
+    }
+
+    @media (max-width: 960px) {
+      .ticker-btn {
+        display: none !important;
+      }
+    }
+
+    /*--------------------------------------------------------------
+          # Navigation Menu
+          --------------------------------------------------------------*/
+    /* Nav Menu Essentials */
+    .nav-menu,
+    .nav-menu * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-menu ul {
+      position: absolute;
+      display: none;
+      top: 100%;
+      left: 0;
+      z-index: 99;
+    }
+
+    .nav-menu li {
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .nav-menu>li {
+      float: left;
+    }
+
+    .nav-menu li:hover>ul,
+    .nav-menu li.sfHover>ul {
+      display: block;
+    }
+
+    .nav-menu ul ul {
+      top: 0;
+      left: 100%;
+    }
+
+    .nav-menu ul li {
+      min-width: 180px;
+      text-align: left;
+    }
+
+    .menu-has-children ul li a {
+      padding: 4px 10px !important;
+      text-transform: uppercase !important;
+    }
+
+    /* Nav Menu Arrows */
+    .sf-arrows .sf-with-ul {
+      padding-right: 30px;
+    }
+
+    .sf-arrows .sf-with-ul:after {
+      content: "\f107";
+      position: absolute;
+      right: 15px;
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+    }
+
+    .sf-arrows ul .sf-with-ul:after {
+      content: "\f105";
+    }
+
+    /* Nav Meu Container */
+    #nav-menu-container {
+      margin: 0;
+    }
+
+    @media (min-width: 1024px) {
+      #nav-menu-container {
+        padding-right: 60px;
+      }
+    }
+
+    @media (max-width: 960px) {
+      #nav-menu-container {
+        display: none;
+      }
+    }
+
+    /* Nav Meu Styling */
+    .nav-menu a {
+      padding: 6px 10px;
+      text-decoration: none;
+      display: inline-block;
+      color: #fff;
+      font-weight: 400;
+      font-size: 12px;
+      text-transform: uppercase;
+      outline: none;
+    }
+
+    .nav-menu>li {
+      margin-left: 10px;
+    }
+
+    .nav-menu ul {
+      margin: 14px 0 0 0;
+      padding: 10px;
+      box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+      background: #fff;
+    }
+
+    .nav-menu ul li {
+      transition: 0.3s;
+    }
+
+    .nav-menu ul li a {
+      padding: 10px;
+      color: #333;
+      transition: 0.3s;
+      display: block;
+      font-size: 12px;
+      text-transform: none;
+    }
+
+    .nav-menu ul li:hover>a {
+      color: #49e4fa;
+    }
+
+    .nav-menu ul ul {
+      margin: 0;
+    }
+  </style>
+  <style>
+    /* Nav Menu Essentials */
+    .nav-menu,
+    .nav-menu * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-menu ul {
+      position: absolute;
+      display: none;
+      top: 100%;
+      left: 0;
+      z-index: 99;
+    }
+
+    .nav-menu li {
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .nav-menu>li {
+      float: left;
+    }
+
+    .nav-menu li:hover>ul,
+    .nav-menu li.sfHover>ul {
+      display: block;
+    }
+
+    .nav-menu ul ul {
+      top: 0;
+      left: 100%;
+    }
+
+    .nav-menu ul li {
+      min-width: 180px;
+      text-align: left;
+    }
+
+    .menu-has-children ul li a {
+      padding: 4px 10px !important;
+      text-transform: uppercase !important;
+    }
+
+    /* Nav Menu Arrows */
+    .sf-arrows .sf-with-ul {
+      padding-right: 30px;
+    }
+
+    .sf-arrows .sf-with-ul:after {
+      content: "\f107";
+      position: absolute;
+      right: 15px;
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+    }
+
+    .sf-arrows ul .sf-with-ul:after {
+      content: "\f105";
+    }
+
+    /* Nav Meu Container */
+    #nav-menu-container {
+      margin: 0;
+    }
+
+    @media (min-width: 1024px) {
+      #nav-menu-container {
+        padding-right: 60px;
+      }
+    }
+
+    @media (max-width: 960px) {
+      #nav-menu-container {
+        display: none;
+      }
+    }
+
+    /* Nav Meu Styling */
+    .nav-menu a {
+      padding: 6px 10px;
+      text-decoration: none;
+      display: inline-block;
+      color: black;
+      font-weight: 400;
+      font-size: 12px;
+      text-transform: uppercase;
+      outline: none;
+    }
+
+    .nav-menu>li {
+      margin-left: 10px;
+    }
+
+    .nav-menu ul {
+      margin: 14px 0 0 0;
+      padding: 10px;
+      box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+      background: #fff;
+    }
+
+    .nav-menu ul li {
+      transition: 0.3s;
+    }
+
+    .nav-menu ul li a {
+      padding: 10px;
+      color: #333;
+      transition: 0.3s;
+      display: block;
+      font-size: 12px;
+      text-transform: none;
+    }
+
+    .nav-menu ul li:hover>a {
+      color: #49e4fa;
+    }
+
+    .nav-menu ul ul {
+      margin: 0;
+    }
+
+    .justify-content-between {
+      justify-content: space-between !important;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="header" id="home">
+    <div class="container-fluid">
+      <div class="row align-items-center justify-content-between d-flex">
+        <div id="logo">
+          <a href="/"><img itemprop="image" class="mkdf-normal-logo" src="/static/img/mainlogo.png" width="180"
+              height="65" alt="logo"></a>
+        </div>
+        <nav id="nav-menu-container">
+          <ul class="nav-menu">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/about_us">About Us</a></li>
+            <li><a href="/category">Category</a></li>
+            <li><a href="/hospitallist">Hospital-List</a></li>
+            {% if 'username' in session %}
+            <!-- User is logged in -->
+            <li><a href="/favourite">Favourites</a></li>
+            <li><a class="signup-link" href="/profile">My Profile</a></li>
+            <li><a class="login-link" href="/logout">Logout</a></li>
+            {% else %}
+            <!-- User is not logged in -->
+            <li><a class="signup-link" href="/signuplogin">Signup/Login</a></li>
+            {% endif %}
+            <!-- <li><a class="signup-link" href="/signup">Signup</a></li>
+						            <li><a class="login-link" href="/login">Login</a></li> -->
+            <li class="register"><a class="register-btn" href="/register" style="width:200px;">Register for free</a>
+            </li>
+          </ul>
+        </nav><!-- #nav-menu-container -->
+      </div>
+    </div>
+  </header><!-- #header -->
+
+
+
+  <!-- start footer Area -->
+  <!-- <footer class="footer">
+        <div class="bg-dark">
+            <div class="row footer-bottom align-items-center justify-content-between">
+                <div class="footer-text">
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> All rights reserved by BAtalks
+                </div>
+                <a href="mailto:contact@batalks.com" class="mx-2">
+                    <i class="fa fa-envelope-square" style="font-size:24px"></i>
+                    <span>contact@batalks.com</span>
+                </a>
+                <a href="tel:+918341322771" class="mx-2">
+                    <i class="fa fa-phone" style="font-size:24px"></i>
+                    <span>+918341322771</span>
+                </a>
+                <div class="d-flex">
+                    <a href="https://www.facebook.com/people/BA-Talks/61561068777682/" target="_blank" class="mx-2">
+                        <i class="fa fa-facebook-f" style="font-size:24px"></i>
+                    </a>
+                    <a href="https://www.instagram.com/batalkspvtltd/" target="_blank" class="mx-2">
+                        <i class="fa fa-instagram" style="font-size:24px"></i>
+                    </a>
+                    <a href="https://api.whatsapp.com/send/?phone=%2B918341322771&text&type=phone_number&app_absent=0"
+                        target="_blank" class="mx-2">
+                        <i class="fa fa-whatsapp" style="font-size:24px"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/ba-talks-pvt-ltd/" target="_blank" class="mx-2">
+                        <i class="fa fa-linkedin" style="font-size:24px"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer> -->
+  <script src="/static/js/vendor/jquery-2.2.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="/static/js/vendor/bootstrap.min.js"></script>
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  <script src="/static/js/easing.min.js"></script>
+  <script src="/static/js/hoverIntent.js"></script>
+  <script src="/static/js/superfish.min.js"></script>
+  <script src="/static/js/jquery.ajaxchimp.min.js"></script>
+  <script src="/static/js/jquery.magnific-popup.min.js"></script>
+  <script src="/static/js/owl.carousel.min.js"></script>
+  <script src="/static/js/jquery.sticky.js"></script>
+  <script src="/static/js/jquery.nice-select.min.js"></script>
+  <script src="/static/js/parallax.min.js"></script>
+  <script src="/static/js/mail-script.js"></script>
+  <script src="/static/js/main.js"></script>
+  <script>
+    // Get the current URL path
+    const currentPath = window.location.pathname;
+  
+    // Select all nav links
+    const navLinks = document.querySelectorAll('.nav-menu li a');
+  
+    // Loop through each link to find a match with the current path
+    navLinks.forEach(link => {
+      // Check if the link's href matches the current path
+      if (link.getAttribute('href') === currentPath) {
+        // Add 'active' class to the matching <li> parent
+        link.parentElement.classList.add('active');
+      } else {
+        // Remove 'active' class from other <li> elements
+        link.parentElement.classList.remove('active');
+      }
+    });
+  </script>
+
+  <script>
+    window.onload = function () {
+      getLocation();
+    };
+
+    // Function to get user's current location
+    function getLocation() {
+      const locationInput = document.getElementById('location-input');
+
+      if (navigator.geolocation) {
+        console.log('Geolocation is supported. Fetching location...');
+        navigator.geolocation.getCurrentPosition(success, showError, { enableHighAccuracy: true });
+      } else {
+        alert("Geolocation is not supported by this browser.");
+        locationInput.value = 'Geolocation not supported';
+      }
+
+      function success(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+
+        // Reverse geocoding to get area name
+        fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Failed to fetch location details.');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log("Geocoding API response:", data);  // Log the full response for debugging
+            const locality = data.locality || 'Unknown locality';
+            const principalSubdivision = data.principalSubdivision || 'Unknown region';
+            locationInput.value = `${locality}, ${principalSubdivision}`;  // Display the area name
+
+            // Now send user location to the backend
+            return fetch('/', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                latitude: latitude,
+                longitude: longitude
+              })
+            });
+          })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok.');
+            }
+            return response.json();  // Expecting JSON data from the server
+          })
+          .then(hospitals => {
+            console.log("Received data from server:", hospitals);
+            displayHospitals(hospitals);  // Update the UI with hospital data
+          })
+          .catch(error => console.error('Error:', error));
+      }
+
+      // Handle errors in geolocation
+      function showError(error) {
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            alert("User denied the request for Geolocation.");
+            locationInput.value = 'Permission denied';
+            break;
+          case error.POSITION_UNAVAILABLE:
+            alert("Location information is unavailable.");
+            locationInput.value = 'Location unavailable';
+            break;
+          case error.TIMEOUT:
+            alert("The request to get user location timed out.");
+            locationInput.value = 'Request timed out';
+            break;
+          case error.UNKNOWN_ERROR:
+            alert("An unknown error occurred.");
+            locationInput.value = 'Unknown error';
+            break;
+        }
+      }
+    }
+    function displayHospitals(hospitals) {
+      const hospitalList = document.querySelector('.hospital-list');
+      hospitalList.innerHTML = '';
+
+      if (!hospitals || hospitals.length === 0) {
+        hospitalList.innerHTML = '<p>No nearby hospitals found within 5km of your location.</p>';
+      } else {
+        hospitals.forEach(hospital => {
+          const hospitalItem = `
+                  <div class="single-post d-flex flex-row">
+                      <div class="thumb">
+                          <img src="/static/img/post.png" alt="Hospital Image">
+                          <ul class="tags">
+                              <li><a href="#" class="upcoming-feature-btn">Call</a></li>
+                              <li><a href="#" class="upcoming-feature-btn">Chat</a></li>
+                              <li>
+                                  <a href="#" data-bs-toggle="modal" data-bs-target="#appointmentModal${hospital.hospital_id}">Book Appointment</a>
+                              </li>
+                          </ul>
+                      </div>
+                      <div class="details">
+                          <div class="title d-flex flex-row justify-content-between">
+                              <div class="titles">
+                                  <a href="single.html">
+                                      <h4>${hospital.hospital_name}</h4>
+                                  </a>
+                                  <h6>Available Now</h6>
+                              </div>
+                              <ul class="btns">
+                                  <li>
+                                      <form action="/toggle_favourite" method="POST" style="display:inline;">
+                                          <input type="hidden" name="hospital_id" value="${hospital.hospital_id}">
+                                          <button type="button" class="toggle-favourite" aria-label="${hospital.is_favourite ? 'Remove from favorites' : 'Add to favorites'}">
+                                              <i class="fas fa-heart ${hospital.is_favourite ? 'active' : ''}"></i>
+                                          </button>
+                                      </form>
+                                  </li>
+                                  <li>
+                                      <a href="#" class="view-card">View</a>
+                                  </li>
+                              </ul>
+                          </div>
+                          <p><strong>Timings:</strong> ${hospital.timings}</p>
+                          <h5>${hospital.years_since_established} years in healthcare</h5>
+                          <p class="address"><i class="fa-solid fa-location-dot"></i> ${hospital.distance} km</p>
+                          <p class="address">Op price(<i class="fa-solid fa-indian-rupee-sign"></i> ${hospital.opcard_price})</p>
+                          <p class="address">
+                              <strong>Current OP count:</strong> 
+                              <span onclick="{% if 'username' not in session %} alert('Please login to see the current OP count.'); {% endif %}">
+                                  {% if 'username' in session %}
+                                      123  <!-- Fake count to display after login -->
+                                  {% else %}
+                                      **  <!-- Masked number -->
+                                      <p id="opcount">Login to see the current op count</p>
+                                  {% endif %}
+                              </span>
+                          </p>
+                      </div>
+                  </div>
+  
+                  <!-- Modal for Booking Appointment -->
+                  <div class="modal fade" id="appointmentModal${hospital.hospital_id}" tabindex="-1" aria-labelledby="appointmentModalLabel${hospital.hospital_id}" aria-hidden="true">
+                      <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title" id="appointmentModalLabel${hospital.hospital_id}">Book Appointment - ${hospital.hospital_name}</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                  <div class="text-center">
+                                      <button class="btn btn-primary m-2 new-patient-btn" data-hospital-id="${hospital.hospital_id}">New Patient</button>
+                                      <button class="btn btn-primary m-2 existing-patient-btn" data-hospital-id="${hospital.hospital_id}">Already a Patient</button>
+                                  </div>
+  
+                                  <!-- New Patient Form -->
+                                  <form id="newPatientForm${hospital.hospital_id}" class="new-patient-form" style="display: none;" method="POST" action="/bookappointment">
+                                      <input type="hidden" name="appointmentDate" value="" id="appointmentDateHidden${hospital.hospital_id}">
+                                      <label for="firstName">First Name:</label>
+                                      <input type="text" name="firstName" placeholder="First name" class="form-control" required>
+  
+                                      <label for="lastName">Last Name:</label>
+                                      <input type="text" name="lastName" placeholder="Last name" class="form-control" required>
+  
+                                      <label for="number">Phone Number:</label>
+                                      <input type="text" name="number" placeholder="Phone number" class="form-control" required>
+  
+                                      <label for="address">Address:</label>
+                                      <input type="text" name="address" placeholder="Your address" class="form-control" required>
+  
+                                      <label for="reason">Reason for your Appointment:</label>
+                                      <input type="text" name="reason" placeholder="Reason for appointment" class="form-control" required>
+  
+                                      <label for="appointmentDate">Select Date:</label>
+                                      <input type="date" name="appointmentDate" class="form-control" required>
+  
+                                      <button type="submit" class="btn btn-success mt-3">Book Appointment</button>
+                                  </form>
+  
+                                  <!-- Existing Patient Form -->
+                                  <form id="existingPatientForm${hospital.hospital_id}" class="existing-patient-form" style="display: none;" method="POST" action="/bookappointment">
+                                      <input type="hidden" name="appointmentDate" value="" id="appointmentDateHidden${hospital.hospital_id}">
+                                      <label for="opName">Name on OP Card:</label>
+                                      <input type="text" name="opName" placeholder="Name on OP card" class="form-control" required>
+  
+                                      <label for="opPhone">Phone Number on OP Card:</label>
+                                      <input type="text" name="opPhone" placeholder="Phone number on OP card" class="form-control" required>
+  
+                                      <label for="opNumber">OP Number:</label>
+                                      <input type="text" name="opNumber" placeholder="OP number" class="form-control" required>
+  
+                                      <button type="submit" class="btn btn-success mt-3">Book Appointment</button>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                  </div>`;
+
+          hospitalList.innerHTML += hospitalItem;
+        });
+
+        // Event listeners for "Call" and "Chat" buttons
+        document.querySelectorAll('.upcoming-feature-btn').forEach(button => {
+          button.addEventListener('click', function (e) {
+            e.preventDefault();
+            const upcomingFeatureModal = new bootstrap.Modal(document.getElementById('upcomingFeatureModal'));
+            upcomingFeatureModal.show();
+          });
+        });
+
+        // Event listeners for "New Patient" and "Existing Patient" buttons
+        hospitalList.addEventListener('click', function (event) {
+          if (event.target.classList.contains('new-patient-btn')) {
+            const modalBody = event.target.closest('.modal-body');
+            modalBody.querySelector(".new-patient-form").style.display = 'block';
+            modalBody.querySelector(".existing-patient-form").style.display = 'none';
+          } else if (event.target.classList.contains('existing-patient-btn')) {
+            const modalBody = event.target.closest('.modal-body');
+            modalBody.querySelector(".new-patient-form").style.display = 'none';
+            modalBody.querySelector(".existing-patient-form").style.display = 'block';
+          }
+        });
+
+        // Event listeners for "Toggle Favourite" buttons
+        const favoriteButtons = document.querySelectorAll('.toggle-favourite');
+
+        favoriteButtons.forEach(button => {
+          button.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const form = this.closest('form'); // Get the form element
+            const hospitalId = form.querySelector('input[name="hospital_id"]').value; // Get hospital_id
+            const heartIcon = this.querySelector('.fas.fa-heart'); // Get the heart icon
+            const isActive = heartIcon.classList.contains('active'); // Check if the heart is active
+            const action = isActive ? 'remove' : 'add'; // Determine action
+
+            const endpoint = action === 'add' ? '/add_favourite' : '/remove_favourite';
+
+            fetch(endpoint, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+              },
+              body: new URLSearchParams({
+                'hospital_id': hospitalId
+              })
+            })
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error('Network response was not ok');
+                }
+                return response.json();
+              })
+              .then(data => {
+                if (data.success) {
+                  heartIcon.classList.toggle('active'); // Toggle the heart icon's active state
+                } else {
+                  alert(data.message || 'An error occurred.');
+                }
+              })
+              .catch(error => {
+                console.error('Error:', error);
+              });
+          });
+        });
+      }
+    }
+
+    // Event delegation for New Patient and Existing Patient buttons
+    hospitalList.addEventListener('click', function (event) {
+      if (event.target.classList.contains('new-patient-btn')) {
+        const modalBody = event.target.closest('.modal-body');
+        modalBody.querySelector(".new-patient-form").style.display = 'block';
+        modalBody.querySelector(".existing-patient-form").style.display = 'none';
+      } else if (event.target.classList.contains('existing-patient-btn')) {
+        const modalBody = event.target.closest('.modal-body');
+        modalBody.querySelector(".new-patient-form").style.display = 'none';
+        modalBody.querySelector(".existing-patient-form").style.display = 'block';
+      }
+    });
+
+
+
+    // Event listener for location icon to retake location
+    document.getElementById('location-icon').addEventListener('click', getLocation);
+
+  </script>
+  <script>
+    // Event delegation for New Patient and Existing Patient buttons
+    hospitalList.addEventListener('click', function (event) {
+      if (event.target.classList.contains('new-patient-btn')) {
+        const modalBody = event.target.closest('.modal-body');
+        if (modalBody) { // Check if modalBody is found
+          modalBody.querySelector('.new-patient-form').style.display = 'block';
+          modalBody.querySelector('.existing-patient-form').style.display = 'none';
+        } else {
+          console.error('Modal body not found!');
+        }
+      } else if (event.target.classList.contains('existing-patient-btn')) {
+        const modalBody = event.target.closest('.modal-body');
+        if (modalBody) { // Check if modalBody is found
+          modalBody.querySelector('.new-patient-form').style.display = 'none';
+          modalBody.querySelector('.existing-patient-form').style.display = 'block';
+        } else {
+          console.error('Modal body not found!');
+        }
+      }
+    });
+
+  </script>
+
+  <script>
+    document.getElementById('showbtn').addEventListener('click', function () {
+      var hiddenCategories = document.getElementById('category-2');
+      if (hiddenCategories.style.display === 'none') {
+        hiddenCategories.style.display = 'flex'; // Shows the hidden categories
+        this.textContent = 'Show Less'; // Changes button text
+      } else {
+        hiddenCategories.style.display = 'none'; // Hides the categories again
+        this.textContent = 'Show All'; // Resets button text
+      }
+    });
+
+
+    // Header links by problem
+    function navigateToPage() {
+      var select = document.getElementById("problemSelect");
+      var selectedValue = select.options[select.selectedIndex].value;
+      if (selectedValue) {
+        window.location.href = selectedValue;
+      }
+    }
+  </script>
+  <script>
+    // Add this script to your HTML
+    window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) { // Change this value to control when the effect starts
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+  <!-- Modal JavaScript -->
+  <script>
+    // Get modal element
+    var modal = document.getElementById('featureModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById('openModalBtn');
+
+    // Get the close button element
+    var closeBtn = document.getElementsByClassName('close-btn')[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function () {
+      modal.style.display = 'flex'; // Display the modal
+    }
+
+    // When the user clicks on close button (x), close the modal
+    closeBtn.onclick = function () {
+      modal.style.display = 'none'; // Hide the modal
+    }
+
+    // Close the modal if the user clicks outside the modal content
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+
+
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Check if modal button exists (only after login)
+      const openModalBtn = document.getElementById("openModalBtn");
+      if (openModalBtn) {
+        const modal = document.getElementById("featureModal");
+        const closeBtn = document.querySelector(".close-btn");
+
+        // Open modal when button is clicked
+        openModalBtn.addEventListener("click", function () {
+          modal.style.display = "flex"; // Show modal
+        });
+
+        // Close modal when the close button is clicked
+        closeBtn.addEventListener("click", function () {
+          modal.style.display = "none"; // Hide modal
+        });
+
+        // Close modal when clicking outside the modal content
+        window.addEventListener("click", function (event) {
+          if (event.target === modal) {
+            modal.style.display = "none"; // Hide modal
+          }
+        });
+      }
+    });
+
+  </script>
+
+</body>
+
+</html>

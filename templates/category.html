@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/static/img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="codepixer">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Hospital Listing</title>
+    {% include 'header.html' %}
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <!--
+		CSS
+		============================================= -->
+    <link rel="stylesheet" href="/static/css/linearicons.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/magnific-popup.css">
+    <link rel="stylesheet" href="/static/css/nice-select.css">
+    <link rel="stylesheet" href="/static/css/animate.min.css">
+    <link rel="stylesheet" href="/static/css/owl.carousel.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        .single-feature {
+            position: relative;
+        }
+
+        #prem {
+            position: absolute;
+            bottom: 60px;
+            left: 180px;
+        }
+
+        .badge-icon {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+
+            border-radius: 50%;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .single-feature {
+            position: relative;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+
+        .nav-menu a {
+            padding: 6px 10px;
+            text-decoration: none;
+            display: inline-block;
+            color: #fff;
+            font-weight: 400;
+            font-size: 16px;
+            text-transform: uppercase;
+            outline: none;
+        }
+
+        .sticky {
+
+            position: sticky;
+
+            bottom: 0;
+            padding: 5px;
+            margin: 10px;
+            width: 300px;
+            float: right;
+        }
+
+        .sticky h1 {
+            color: orangered;
+        }
+
+        .section-gap {
+            padding: 50px 0;
+        }
+
+        .single-popular-post {
+            background-color: lavender;
+            padding: 50px;
+            color: #000;
+        }
+
+        .single-popular-post h1 {
+            color: #000;
+        }
+
+        .get-app {
+            margin-left: 10px;
+        }
+
+        /* Styling for the Get App now button */
+        .get-app-btn {
+            display: inline-block;
+            padding: 10px 10px;
+            background-color: #ff9800;
+            /* Change to your preferred color */
+            color: #fff;
+            border-radius: 50px;
+            /* Rounded appearance */
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            margin-left: 15px;
+            text-transform: lowercase;
+            transition: background-color 0.3s ease;
+        }
+        .register-btn {
+			display: inline-block;
+			padding: 10px 20px;
+			width: 400px;
+			background:#ff9800;
+			/* Gradient background */
+			color: #fff;
+			border: none;
+			border-radius: 25px;
+			/* Rounded corners */
+			font-size: 16px;
+			text-align: center;
+			text-decoration: none;
+			transition: background 0.3s ease, transform 0.3s ease;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+			/* Subtle shadow */
+		}
+
+		.register-btn:hover {
+			background: orangered;
+			/* Reverse gradient on hover */
+			transform: translateY(-2px);
+			/* Lift effect on hover */
+			box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+			/* Enhance shadow on hover */
+		}
+
+
+        /* Hover effect */
+        .get-app-btn:hover {
+            background-color: #e64a19;
+            /* Slightly darker color for hover state */
+            transform: translateY(-2px);
+			/* Lift effect on hover */
+			box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+			/* Enhance shadow on hover */
+        }
+
+        /* Additional adjustments for Get App now button */
+        .get-app {
+            margin-left: auto;
+            /* Pushes the Get App button to the far right */
+        }
+
+        .get-app-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.5);
+            /* Optional focus state styling */
+        }
+
+        /* Footer Base Styling */
+        /* Base Styling for Footer */
+        /* Base Styling for Footer */
+        /* Base Styling for Footer */
+        /* Base Styling for Footer */
+        footer {
+            background-color: #343a40;
+            /* Dark background color */
+            color: #fff;
+            /* White text color */
+            padding: 20px 20px;
+            /* Vertical padding */
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-wrap: nowrap;
+            /* Prevents wrapping on larger screens */
+            align-items: center;
+            justify-content: space-between;
+            /* Space between items */
+            padding: 10px 0;
+            /* Vertical padding */
+            text-align: left;
+            /* Left-align text by default */
+        }
+
+        .footer-text {
+            margin: 0;
+            font-size: 14px;
+            flex: 1;
+            /* Takes available space without forcing new lines */
+        }
+
+        .footer-bottom .d-flex {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            /* Aligns items to the right */
+            flex-wrap: nowrap;
+            /* Prevents wrapping on larger screens */
+        }
+
+        .footer-bottom .mx-2 {
+            margin: 0 8px;
+            /* Margin between icons and text */
+        }
+
+        .footer-bottom .text-white {
+            color: #fff;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .footer-bottom {
+                flex-direction: column;
+                /* Stack elements vertically on small screens */
+                gap: 5px;
+                /* Reduce gap for small screens */
+            }
+
+            .footer-bottom a {
+                margin: 5px 0;
+                /* Adjust margin for small screens */
+            }
+
+            .footer-bottom .d-flex {
+                justify-content: center;
+                /* Center the social icons on small screens */
+                margin-top: 5px;
+                /* Adjust top margin */
+            }
+        }
+
+        .single-post {
+            margin-top: 20px;
+            /* Add additional styles as needed */
+        }
+
+        /* BOOK APPOINTEMENT */
+        .single-slidebar {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .single-slidebar h4 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .single-slidebar .btn {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            background: rgb(130, 130, 232);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .single-slidebar .btn:hover {
+            background: #0056b3;
+        }
+
+        .single-slidebar label {
+            display: block;
+            margin: 5px 0 5px;
+            font-weight: bold;
+        }
+
+        .single-slidebar input {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .single-slidebar button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background: rgb(92, 92, 222);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .single-slidebar button[type="button"] {
+            width: 100%;
+            padding: 10px;
+            background: rgb(92, 92, 222);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .single-slidebar button[type="submit"]:hover {
+            background: rgb(69, 69, 223);
+        }
+
+        /* Media query for smaller screens */
+        @media screen and (max-width: 768px) {
+            .single-slidebar {
+                padding: 10px;
+            }
+
+            .single-slidebar h4 {
+                font-size: 18px;
+            }
+
+            .single-slidebar button {
+                font-size: 16px;
+            }
+        }
+
+        /* Media query for extra small screens */
+        @media screen and (max-width: 480px) {
+
+            .single-slidebar input[type="text"],
+            .single-slidebar input[type="date"],
+            .single-slidebar button {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .single-slidebar h4 {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            
+            .get-app-btn,
+            .register-btn {
+                background-color: transparent;
+                color: #333;
+                /* Use a standard text color */
+                border: none;
+                /* Remove border */
+                padding: 0;
+                /* Remove padding */
+                margin-left: 0;
+                text-align: left;
+                font-size: 14px;
+                /* Slightly smaller font */
+            }
+
+            .get-app-btn:hover,
+            .register-btn:hover {
+                text-decoration: underline;
+                /* Add underline on hover for better interaction feedback */
+            }
+
+            .get-app,
+            .register {
+                margin: 10px 0;
+                width: 0;
+
+            }
+
+            .nav-menu li {
+                margin: 5px 0;
+                display: block;
+                text-align: center;
+            }
+        }
+        .active {
+			text-decoration: underline;
+		}
+
+		/*active class*/
+		.nav-menu li a {
+			text-decoration: none;
+			color: white;
+			/* Default color */
+			padding: 10px;
+		}
+
+		.nav-menu li.active a {
+			color: whitesmoke;
+			/* Highlight color for active link */
+			text-decoration: white underline;
+			font-weight: bold;
+
+		}
+    </style>
+</head>
+
+<body>
+   
+    <!-- start banner Area -->
+    <section class="banner-area relative" id="home">
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="about-content col-lg-12">
+					{% if 'username' in session %}
+						
+					{% else %}
+					{% endif %}
+                    <h1 class="text-white">
+                        Hospitals in {{ category|capitalize }}
+                    </h1>
+                    <p class="text-white link-nav"><a href="/">Home </a> <span class="lnr lnr-arrow-right"></span> <a
+                            href="#"> {{ category|capitalize }} category</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End banner Area -->
+
+
+	<!-- Start feature-cat Area -->
+	<section class="feature-cat-area pt-100 fadeInLeft" id="category " style="animation-name: fadeInLeft;">
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="menu-content pb-60 col-lg-10">
+					<div class="title text-center ">
+						<h1 class="mb-10 ">Featured Hospitals near your location</h1>
+						<p>Discover Leading Hospitals Committed to Your Well-being</p>
+					</div>
+				</div>
+			</div>
+			<div class="row m-3">
+				<div class="col-lg-2 col-md-4 col-sm-6">
+					<div class="single-fcat">
+						<a href="/category?type=general">
+							<img src="/static/img/general.png" alt="" width="60px" height="60px">
+						</a>
+						<p>General Hospitals</p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-6">
+					<div class="single-fcat">
+						<a href="/category?type=cardiology">
+							<img src="/static/img/humanheart.jpg" alt="" width="60px" height="60px">
+						</a>
+						<p>Cardiology</p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-6">
+					<div class="single-fcat">
+						<a href="/category?type=dermatology">
+							<img src="/static/img/hand.png" alt="" width="60px" height="60px">
+						</a>
+						<p>Dermatology</p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-6">
+					<div class="single-fcat">
+						<a href="/category?type=neurology">
+							<img src="/static/img/health.png" alt="" width="60px" height="60px">
+						</a>
+						<p>Neurology</p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-6">
+					<div class="single-fcat">
+						<a href="/category?type=gynecology">
+							<img src="/static/img/maternity.png" alt="" width="60px" height="60px">
+						</a>
+						<p>Gynecology</p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-6">
+					<div class="single-fcat">
+						<a href="/category?type=orthopaedic">
+							<img src="/static/img/ortho.png" alt="" width="60px" height="60px">
+						</a>
+						<p>Orthopaedic</p>
+					</div>
+				</div>
+
+
+			</div>
+			<div class="row m-3" id="category-2" style="display: none;">
+				<div class="col-lg-2 col-md-4 col-sm-6">
+					<div class="single-fcat">
+						<a href="/category?type=onocology">
+							<img src="/static/img/oncology.png" alt="" width="60px" height="60px">
+						</a>
+						<p>Oncology</p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-6">
+					<div class="single-fcat">
+						<a href="/category?type=pulmonology">
+							<img src="/static/img/pulmonology.webp" alt="" width="60px" height="60px">
+						</a>
+						<p>Pulmonology</p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-6">
+					<div class="single-fcat">
+						<a href="/category?type=opthalmology">
+							<img src="/static/img/eye.png" alt="" width="60px" height="60px">
+						</a>
+						<p>Ophthalmology</p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-6">
+					<div class="single-fcat">
+						<a href="/category?type=nephrology">
+							<img src="/static/img/nephrology.webp" alt="" width="60px" height="60px">
+						</a>
+						<p>Nephrology</p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-6">
+					<div class="single-fcat">
+						<a href="/category?type=heptaology">
+							<img src="/static/img/hepatology.png" alt="" width="60px" height="60px">
+						</a>
+						<p>Heptalogy</p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-6">
+					<div class="single-fcat">
+						<a href="/category?type=gastroenterology">
+							<img src="/static/img/gastro.png" alt="" width="60px" height="60px">
+						</a>
+						<p>Gastroenterology</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End feature-cat Area -->
+	 <!-- show button  -->
+	<div class="d-flex justify-content-center align-items-center m-4">
+		<button class="btn btn-primary" id="showbtn">Show All</button>
+	</div>
+	<!-- show button  -->
+
+
+
+    <!-- Start post Area -->
+
+    <section class="post-area section-gap">
+        <div class="">
+            <div class="row justify-content-center d-flex">
+                {% for hospital in hospitals %}
+                <div class="col-lg-8 post-list">
+                    <div class="single-post d-flex flex-row">
+                        <div class="thumb">
+                            <img src="/static/img/post.png" alt="">
+                        </div>
+                        <div class="details">
+                            <div class="title d-flex flex-row justify-content-between">
+                                <div class="titles">
+                                    <a href="single.html">
+                                        <h4>{{ hospital[1] }}</h4> <!-- Hospital Name -->
+                                    </a>
+                                    <h6>{{ hospital[2] }}</h6> <!-- Hospital Code -->
+                                </div>
+                                <ul class="btns">
+                                    <li>
+                                        <form action="/add_favourite" method="POST" class="favourite-form" style="display:inline;">
+                                            <input type="hidden" name="hospital_id" value="{{ hospital[0] }}"> <!-- Hospital ID -->
+                                            <button type="submit" class="add-favourite" aria-label="Add to favorites">
+                                                <span class="lnr lnr-heart"></span>
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p>This Hospital deals with normal fever, viral fever, and dog bite emergencies.</p>
+                            <h5>Year since established: {{ hospital[4] }}</h5> <!-- Years Since Established -->
+                            <p class="address"><i class="fa-solid fa-location-dot"></i> 56/8, Panthapath Dhanmondi Dhaka
+                                <span>&nbsp; 1.5 km</span>
+                            </p>
+                            <p class="address">Op price(<i class="fa-solid fa-indian-rupee-sign"></i> {{ hospital[5] }})</p> <!-- OP Price -->
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+
+
+
+
+    
+    <footer>
+        <div class="bg-dark">
+            <div class="row footer-bottom align-items-center justify-content-between">
+                <div class="footer-text">
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> All rights reserved by BAtalks
+                </div>
+                <a href="mailto:contact@batalks.com" class="mx-2">
+                    <i class="fa fa-envelope-square" style="font-size:24px"></i>
+                    <span>contact@batalks.com</span>
+                </a>
+                <a href="tel:+918341322771" class="mx-2">
+                    <i class="fa fa-phone" style="font-size:24px"></i>
+                    <span>+918341322771</span>
+                </a>
+                <div class="d-flex">
+                    <a href="https://www.facebook.com/people/BA-Talks/61561068777682/" target="_blank" class="mx-2">
+                        <i class="fa fa-facebook-f" style="font-size:24px"></i>
+                    </a>
+                    <a href="https://www.instagram.com/batalkspvtltd/" target="_blank" class="mx-2">
+                        <i class="fa fa-instagram" style="font-size:24px"></i>
+                    </a>
+                    <a href="https://api.whatsapp.com/send/?phone=%2B918341322771&text&type=phone_number&app_absent=0"
+                        target="_blank" class="mx-2">
+                        <i class="fa fa-whatsapp" style="font-size:24px"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/ba-talks-pvt-ltd/" target="_blank" class="mx-2">
+                        <i class="fa fa-linkedin" style="font-size:24px"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const newPatientBtn = document.getElementById('newPatientBtn');
+            const existingPatientBtn = document.getElementById('existingPatientBtn');
+            const newPatientForm = document.getElementById('newPatientForm');
+            const existingPatientForm = document.getElementById('existingPatientForm');
+
+            newPatientBtn.addEventListener('click', function () {
+                newPatientForm.style.display = 'block';
+                existingPatientForm.style.display = 'none';
+            });
+
+            existingPatientBtn.addEventListener('click', function () {
+                newPatientForm.style.display = 'none';
+                existingPatientForm.style.display = 'block';
+            });
+        });
+    </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.favourite-form').on('submit', function(e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            var form = $(this); // Get the form
+            var hospitalId = form.find('input[name="hospital_id"]').val(); // Get the hospital ID
+            var actionUrl = form.attr('action'); // Get the action URL (add/remove)
+
+            $.ajax({
+                url: actionUrl,
+                type: 'POST',
+                data: { hospital_id: hospitalId },
+                success: function(response) {
+                    // Update the UI based on the response
+                    var heartIcon = form.find('.lnr-heart');
+
+                    if (response.action === 'add') {
+                        heartIcon.addClass('active');
+                        form.find('button').attr('aria-label', 'Remove from favorites').text('Remove from favorites');
+                    } else if (response.action === 'remove') {
+                        heartIcon.removeClass('active');
+                        form.find('button').attr('aria-label', 'Add to favorites').text('Add to favorites');
+                    }
+
+                    alert(response.message); // Show a success message
+                },
+                error: function(xhr) {
+                    alert('An error occurred: ' + xhr.responseText); // Show error message
+                }
+            });
+        });
+    });
+</script>
+<script>
+	document.getElementById('showbtn').addEventListener('click', function () {
+			var hiddenCategories = document.getElementById('category-2');
+			if (hiddenCategories.style.display === 'none') {
+				hiddenCategories.style.display = 'flex'; // Shows the hidden categories
+				this.textContent = 'Show Less'; // Changes button text
+			} else {
+				hiddenCategories.style.display = 'none'; // Hides the categories again
+				this.textContent = 'Show All'; // Resets button text
+			}
+		});
+</script>
+
+
+    <!-- End footer Area -->
+
+    <script src="/static/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="/static/js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+    <script src="/static/js/easing.min.js"></script>
+    <script src="/static/js/hoverIntent.js"></script>
+    <script src="/static/js/superfish.min.js"></script>
+    <script src="/static/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/static/js/jquery.magnific-popup.min.js"></script>
+    <script src="/static/js/owl.carousel.min.js"></script>
+    <script src="/static/js/jquery.sticky.js"></script>
+    <script src="/static/js/jquery.nice-select.min.js"></script>
+    <script src="/static/js/parallax.min.js"></script>
+    <script src="/static/js/mail-script.js"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+
+</html>
